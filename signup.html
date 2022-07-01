@@ -8,30 +8,36 @@
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="signup.css">
 </head>
-<body class="bod">
-    <section>
-
-    </section>
-    <section class="secOne  d-flex mt-5">
-        <div>
-            <form class="mx-5 my-5" action="fisrtName">
-                <input class="inp" type="text" placeholder="First Name">
-            </form>
-            <form class="mx-5 mt-5" action="lastName">
-                <input class="inp" type="text" placeholder="Last Name">
-            </form>
+<body class="d-flex justify-content-center align-items-center pt-4">
+    <section class="secOne  d-flex">
+        <p class="fs-5">Create An Account</p>
+        <form class="my-4" action="fisrtName">
+            <label class="form-label" for="First Name">
+                First Name<br>
+                <input class="inp form-control" type="text" placeholder="First Name">
+            </label>
+        </form>
+        <form class="" action="lastName">
+            <label class="form-label" for="Last Name">
+                Last Name <br>
+                <input class="inp form-control w-100" type="text" placeholder="Last Name">
+            </label>
+        </form>
+        <form class=" mt-4" action="Email">
+            <label class="form-label" for="Email">
+                Email <br>
+                <input class="inp form-control" type="text" placeholder="Email">
+            </label>
+        </form>
+        <form class=" mt-4" action="password">
+            <label for="password form-label">
+                Password <br>
+                <input class="inp form-control" type="text" placeholder="Password">
+            </label>
+        </form>
+        <div align="center">
+            <button class="mt-4 but btn">Create An Account</button>
         </div>
-       <div>
-        <form class="mx-5 my-5" action="Email">
-            <input class="inp" type="text" placeholder="Email">
-        </form>
-        <form class="mx-5 mt-5" action="password">
-            <input class="inp" type="text" placeholder="Password">
-        </form>
-       </div>
     </section>
-    <div align="center">
-        <button class="mt-5 but">Create An Account</button>
-    </div>
 </body>
 </html>
