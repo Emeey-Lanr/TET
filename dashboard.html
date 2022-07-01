@@ -8,9 +8,579 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
+
+    <div class="head d-flex justify-content-center align-items-center">
+        <div class="head-input d-flex align-items-center">
+            <input type="text">
+            <button>
+                <span class="material-icons">search</span>
+            </button>
+
+        </div>
+
+
+    </div>
+
+    <main class="mainPage mainPageNone">
+
+        <div class="content d-flex justify-content-center align-items-center">
+            <section>
+                <div class=" icon">
+                    <div class="userinfo">
+                        <div class="user">
+                            <img src="avatar.jpg" alt="">
+                        </div>
+                        <div>
+                            <span class="name">Oyelowo</span><br>
+                            <span class="username">@EmeeyLanr</span>
+                        </div>
+                    </div>
+                    <div class="iconlogo">
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="contactBtn()">
+                                <span class="material-icons">contacts</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Contact</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="toDoListBtn()">
+                                <span class="material-icons">assignment</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">To do list</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="eventBtn()">
+                                <span class="material-icons">star</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Event</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="notesBtn()">
+                                <span class="material-icons">edit_note</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Notes</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="documentBtn()" style="width: 28px;">
+                                <span class="material-icons">descriptions</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Document</p>
+                        </div>
+                        <div class=" d-flex iconm  align-items-center mt-5">
+                            <button onclick="settingsBtn()" style="width: 28px;">
+                                <span class="material-icons">settings</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">settings</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="contents contentMainPage">
+                    <header>
+                        <div>
+                            <h1>tet notes</h1>
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </header>
+
+
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!--============================================================================================-->
+    <!--CONTACT-->
+    <main class="contactPage contactPageNone">
+
+        <div class="content d-flex justify-content-center align-items-center">
+            <section>
+                <div class=" icon">
+                    <div class="userinfo">
+                        <div class="user">
+                            <img src="avatar.jpg" alt="">
+                        </div>
+                        <div>
+                            <span class="name">Oyelowo</span><br>
+                            <span class="username">@EmeeyLanr</span>
+                        </div>
+                    </div>
+                    <div class="iconlogo">
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="contactBtn()">
+                                <span class="material-icons">contacts</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Contact</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="toDoListBtn()">
+                                <span class="material-icons">assignment</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">To do list</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="eventBtn()">
+                                <span class="material-icons">star</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Event</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="notesBtn()">
+                                <span class="material-icons">edit_note</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Notes</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="documentBtn()" style="width: 28px;">
+                                <span class="material-icons">descriptions</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Document</p>
+                        </div>
+                        <div class=" d-flex iconm  align-items-center mt-5">
+                            <button onclick="settingsBtn()" style="width: 28px;">
+                                <span class="material-icons">settings</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">settings</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="contents">
+                    <header>
+                        <div>
+                            <h1>tet notes</h1>
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="contact">CONTACT</div>
+
+                    <table class="table" id="table">
+
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                        </tr>
+                    </table>
+
+                    <div class="add">
+                        <button>
+                            <span class="material-icons">
+                                playlist_add_circle
+                            </span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+        <div class="createNewContact createNewContactNone">
+
+            <div class="newContact">
+
+                <div class="d-flex justify-content-evenly align-items-center px-2">
+                    <span class="newconback">
+                        <button onclick="contactBtn()">
+                            &leftarrow;
+                        </button>
+
+                    </span>
+                    <span>Create new contact</span>
+                    <span class="newconsave">
+                        <button onclick="savecontact()">
+                            SAVE
+                        </button>
+                    </span>
+                </div>
+                <div class="d-flex justify-content-center"><img src="avatar.jpg" alt="" style="width: 50px;"></div>
+                <div>
+                    <div class="d-flex justify-content-center">
+                        <span class="material-icons">
+                            person_add
+                        </span>
+                        <div>
+                            <input type="text" placeholder="First Name" id="contactFirstName">
+                            <input type="text" placeholder="Last Name" id="contactLastName">
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <span class="material-icons">
+                            phone
+                        </span>
+                        <input type="text" placeholder="Phone" id="contactPhone">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <span class="material-icons">
+                            email
+                        </span>
+                        <input type="text" placeholder="Email" id="contactEmail">
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!--TO DO LIST-->
+    <!--EVENT-->
+    <main class="eventPage eventPageNone">
+
+        <div class="content d-flex justify-content-center align-items-center">
+            <section>
+                <div class=" icon">
+                    <div class="userinfo">
+                        <div class="user">
+                            <img src="avatar.jpg" alt="">
+                        </div>
+                        <div>
+                            <span class="name">Oyelowo</span><br>
+                            <span class="username">@EmeeyLanr</span>
+                        </div>
+                    </div>
+                    <div class="iconlogo">
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="contactBtn()">
+                                <span class="material-icons">contacts</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Contact</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="toDoListBtn()">
+                                <span class="material-icons">assignment</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">To do list</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="eventBtn()">
+                                <span class="material-icons">star</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Event</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="notesBtn()">
+                                <span class="material-icons">edit_note</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Notes</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="documentBtn()" style="width: 28px;">
+                                <span class="material-icons">descriptions</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Document</p>
+                        </div>
+                        <div class=" d-flex iconm  align-items-center mt-5">
+                            <button onclick="settingsBtn()" style="width: 28px;">
+                                <span class="material-icons">settings</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">settings</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="contents">
+                    <header>
+                        <div>
+                            <h1>tet notes</h1>
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </header>
+                    <div class="contact">EVENTS</div>
+
+
+                    <div class="event">
+                        <div>
+                            <button class="but1">
+                                <span class="material-icons">star</span>
+                            </button>
+                            <span class="subName">ASH BIRTHDAY</span>
+
+                        </div>
+                        <div>
+                            <div>
+                                <span class="date">18-200-200</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <button>
+                                    <span class="material-icons">content_copy</span>
+                                </button>
+                                <button style="width: 30px;">
+                                    <span class="material-icons ps-2">edit_pen</span>
+                                </button>
+                                <button>
+                                    <span class="material-icons">delete_outline</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!--====================================================================-->
+    <!--NOTES-->
+    <main class="Notes notesNone">
+        <div class="content d-flex justify-content-center align-items-center">
+            <section>
+                <div class=" icon">
+                    <div class="userinfo">
+                        <div class="user">
+                            <img src="avatar.jpg" alt="">
+                        </div>
+                        <div>
+                            <span class="name">Oyelowo</span><br>
+                            <span class="username">@EmeeyLanr</span>
+                        </div>
+                    </div>
+                    <div class="iconlogo">
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="contactBtn()">
+                                <span class="material-icons">contacts</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Contact</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="toDoListBtn()">
+                                <span class="material-icons">assignment</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">To do list</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="eventBtn()">
+                                <span class="material-icons">star</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Event</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="notesBtn()">
+                                <span class="material-icons">edit_note</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Notes</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="documentBtn()" style="width: 28px;">
+                                <span class="material-icons">descriptions</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Document</p>
+                        </div>
+                        <div class=" d-flex iconm  align-items-center mt-5">
+                            <button onclick="settingsBtn()" style="width: 28px;">
+                                <span class="material-icons">settings</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">settings</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="contents">
+                    <header>
+                        <div>
+                            <h1>tet notes</h1>
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="contact">NOTE</div>
+
+                    <div class="add">
+                        <button>
+                            <span class="material-icons">
+                                edit
+                            </span>
+                        </button>
+                    </div>
+                    <div class="notetitle">
+                        <label for="">Title</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <textarea class="note" id="note"></textarea>
+                        <div class="notebtn d-flex justify-content-end">
+                            <button onclick="saveNoteBtn()">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+    </main>
+    <!--=================================================================-->
+    <!--DOCUMENT-->
+    <!--SETTING-->
+    <main class="settingpage settingpageNone">
+
+        <div class="content d-flex justify-content-center align-items-center">
+            <section>
+                <div class=" icon">
+                    <div class="userinfo">
+                        <div class="user">
+                            <img src="avatar.jpg" alt="">
+                        </div>
+                        <div>
+                            <span class="name">Oyelowo</span><br>
+                            <span class="username">@EmeeyLanr</span>
+                        </div>
+                    </div>
+                    <div class="iconlogo">
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="contactBtn()">
+                                <span class="material-icons">contacts</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Contact</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="toDoListBtn()">
+                                <span class="material-icons">assignment</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">To do list</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="eventBtn()">
+                                <span class="material-icons">star</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Event</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="notesBtn()">
+                                <span class="material-icons">edit_note</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Notes</p>
+                        </div>
+                        <div class="d-flex iconm  align-items-center">
+                            <button onclick="documentBtn()" style="width: 28px;">
+                                <span class="material-icons">descriptions</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">Document</p>
+                        </div>
+                        <div class=" d-flex iconm  align-items-center mt-5">
+                            <button onclick="settingsBtn()" style="width: 28px;">
+                                <span class="material-icons">settings</span>
+                            </button>
+                            <p class="iconMessage hideIconMessage">settings</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="contents">
+                    <header>
+                        <div>
+                            <h1>tet notes</h1>
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </header>
+
+                    <div class="contact">SETTING</div>
+                    <div class="editingprofile ">
+                        <div class="d-flex align-items-center ps-2">
+                            <button onclick="editProfileBtn()">
+                                <span class="material-icons">edit</span>
+                            </button>
+                            <span>Edit profile</span>
+
+                        </div>
+                        <div class="d-flex align-items-center ps-2">
+                            <button onclick="delProfileBtn()">
+                                <span class="material-icons">delete</span>
+                            </button>
+                            <span>Delete Profile</span>
+
+                        </div>
+                    </div>
+                </div>
+    </main>
+    <div class="editprofile editprofileNone">
+        <div class="editprofilee d-flex justify-content-center align-items-center">
+
+            <div class="editprofileContent">
+
+                <p>TET</p>
+                <p>Edit Your Profile</p>
+                <div class="d-flex justify-content-center w-100">
+                    <div class="w-75">
+                        <label for="" class="form-label">First Name</label>
+                        <input type="text">
+                        <label for="" class="form-label">Last Name</label>
+                        <input type="text">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email">
+                        <label for="" class="form-label">Password</label>
+                        <input type="password">
+                        <div class="d-flex justify-content-center">
+                            <button onclick="saveEditProfile()">save</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="delprofile delprofileNone">
+        <div class="delprofilee d-flex justify-content-center align-items-center">
+
+            <div class="delprofileContent">
+
+                <h5>TET</h5>
+                <p>Enter your Email & Password to get your account deactivated and to verify the process</p>
+                <div class="d-flex justify-content-center w-100">
+                    <div class="w-75">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email">
+                        <label for="" class="form-label">Password</label>
+                        <input type="password">
+                        <div class="d-flex justify-content-center">
+                            <button onclick="saveEditProfile()">save</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
 
 </body>
