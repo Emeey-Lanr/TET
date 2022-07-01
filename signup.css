@@ -1,0 +1,39 @@
+
+.secOne{
+  padding: 20px;
+  border-radius:30px; 
+  background-color:#fbfbf9;
+  box-shadow: 2px 2px 5px;
+  width:30%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+ .img{ 
+  width: 350px;
+  height: 150px;
+  margin-top: -45px; 
+  margin-bottom: -45px;
+} 
+.inp{
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 10px;
+  font-size: 0.9em;
+}
+.but{
+  height: 3em;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  background-color: #266EF1; 
+}
+.lab{
+  font-size: 1.3em;
+}
+@media only screen and (max-width: 760px){
+  .secOne{
+    width:70%;
+  }
+}
