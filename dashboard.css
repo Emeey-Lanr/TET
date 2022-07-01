@@ -1,0 +1,532 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: tet;
+    src: url(amz.ttf);
+}
+
+.head {
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(25deg, #23405a, #005cb2cc);
+}
+
+.head .head-input {
+    width: 80%;
+}
+
+.head .head-input input {
+    width: 20%;
+}
+
+.head .head-input .input {
+    border: 1px solid black;
+}
+
+
+.head .head-input button {
+    border: none;
+    background: none;
+    margin-top: 5px;
+
+}
+
+.head .head-input button span {
+    color: white;
+    padding-left: 10px;
+
+}
+
+main {
+    padding-top: 40px;
+}
+
+.setting {
+    width: 30%;
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+.setting button {
+    border: none;
+    background: transparent;
+
+}
+
+.content {
+    width: 100%;
+    position: relative;
+}
+
+.contentMainPage {
+    background-image: url(back.jpg);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+
+}
+
+section {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    background-color: #f9f9fb;
+    border-radius: 50px;
+    padding-bottom: 50px;
+}
+
+.userinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userinfo>div .username {
+    font-size: 0.6rem;
+    color: #001529;
+}
+
+
+.user img {
+    width: 70px;
+    border-radius: 40px;
+    padding-right: 10px;
+}
+
+
+.iconlogo>div:hover {
+    background-color: #e0e1e1;
+    border-radius: 20px 0 0 20px;
+}
+
+.iconm {
+
+    padding: 10px 0;
+    padding-left: 45px;
+    line-height: 2;
+}
+
+.iconm button {
+    border: none;
+    background: transparent;
+    margin-right: 10px;
+}
+
+.iconm button span {
+    color: #123a60;
+}
+
+header {
+    background: linear-gradient(25deg, #23405a, #005cb2cc);
+    border-radius: 10px 0 0 10px;
+}
+
+h1 {
+    text-align: center;
+    font-family: tet;
+    color: #f9f9fb;
+    padding-top: 20px;
+}
+
+.inputSearch {
+    background-color: #f9f9fb;
+}
+
+.event {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%);
+    padding: 20px 10px;
+
+}
+
+.event button {
+    border: none;
+    background: none;
+
+}
+
+.event button>span {
+    color: #001529;
+}
+
+.event .but1 {
+    background-color: #23405a;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.event .but1 span {
+    color: #f9f9fb;
+}
+
+.subName {
+    font-family: tet;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.textArea {
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+
+
+/* CONTACTS */
+.contact {
+    text-align: center;
+    font-family: tet;
+    background-color: #cdd0d5;
+    padding: 10px 0;
+    border-radius: 10px 0 0 10px;
+
+}
+
+.add {
+
+    position: absolute;
+    bottom: 5%;
+    right: 17%;
+}
+
+.add button {
+    background: none;
+    border: none;
+}
+
+.add button span {
+    font-size: 2rem;
+}
+
+.createNewContact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.703);
+    padding: 150px 0;
+    position: absolute;
+    top: 0%;
+}
+
+
+
+.newContact {
+    width: 26%;
+    background-color: #fafafa;
+    padding-top: 30px;
+    border-radius: 40px;
+    height: 60vh;
+
+}
+
+
+.newContact img {
+    border-radius: 40px;
+}
+
+
+.newconback button {
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.newconsave button {
+    border: none;
+    background: none;
+    font-weight: bold;
+}
+
+.newContact span {
+    padding-right: 20px;
+}
+
+.newContact input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid black;
+    background: none;
+    padding-right: 50px;
+    margin-bottom: 30px;
+}
+
+.newContact input:focus {
+    outline: none;
+}
+
+/*====NOTE===*/
+.note {
+    width: 100%;
+    height: 100vh;
+}
+
+.notetitle input {
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.notebttn {
+    padding-right: 20px;
+}
+
+.notebtn button {
+    border: none;
+    padding: 10px;
+    background-color: #001529;
+    color: #f9f9fb;
+    border-radius: 10px;
+
+}
+
+
+
+.editingprofile {
+    padding-top: 30px;
+
+
+}
+
+.editingprofile>div {
+    line-height: 5;
+    font-style: italic;
+    border-radius: 10px;
+
+}
+
+.editingprofile>div:hover {
+    background-color: #cdd0d5;
+}
+
+.editingprofile button {
+    border: none;
+    background: none;
+}
+
+.editprofile {
+    background: #000000cc;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+}
+
+.editprofile input {
+    display: block;
+}
+
+.editprofile input:focus {
+    outline: none;
+}
+
+.editprofilee {
+    height: 100vh;
+
+}
+
+.editprofileContent {
+    background-color: white;
+    padding-top: 40px;
+    width: 30%;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+.editprofileContent p {
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    color: black;
+}
+
+.editprofile input {
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+
+.editprofileContent button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(25deg, #3d4a55, #475461cc);
+    color: #f9f9fb;
+    font-weight: bold;
+
+}
+
+
+/*DELETE PROFILE*/
+.delprofile {
+    background: #000000cc;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+}
+
+.delprofile input {
+    display: block;
+}
+
+.delprofile input:focus {
+    outline: none;
+}
+
+.delprofilee {
+    height: 100vh;
+
+}
+
+.delprofile p {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+h5 {
+    text-align: center;
+    font-family: tet;
+}
+
+
+.delprofileContent {
+    background-color: white;
+    padding-top: 40px;
+    width: 30%;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+.delprofileContent p {
+    font-size: 1rem;
+    font-style: italic;
+    text-align: justify;
+    color: black;
+}
+
+.delprofile input {
+    border: none;
+    border: 1px solid black;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 2px;
+    border-radius: 10px;
+}
+
+
+.delprofileContent button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(25deg, #3d4a55, #475461cc);
+    color: #f9f9fb;
+    font-weight: bold;
+
+}
+
+/*=====DISPLAY NONE PAGE=====*/
+.createNewContactNone {
+    display: none;
+}
+
+.contactPageNone {
+    display: none;
+}
+
+
+.notesNone {
+    display: none;
+}
+
+
+
+.settingpageNone {
+    display: none;
+}
+
+.editprofileNone {
+    display: none;
+}
+
+.delprofileNone {
+    display: none;
+}
+
+.eventPageNone {
+    display: none;
+}
+
+@media screen and (max-width:1188px) {
+    .search button {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    section {
+        grid-template-columns: 1fr 11fr;
+    }
+
+    .userinfo {
+        display: unset;
+        margin: o auto;
+        text-align: center;
+    }
+
+    .hideIconMessage {
+        display: none;
+    }
+
+    .iconm {
+        padding-left: 0;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+
+    .editprofileContent {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:650px) {
+    section {
+        width: 100%;
+        border-radius: unset;
+    }
+
+    .event {
+        flex-direction: column;
+        justify-content: start;
+
+    }
+
+    .search {
+        width: 90%;
+    }
+
+    .editprofileContent {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:470px) {
+    .editprofileContent {
+        width: 80%;
+    }
+}
