@@ -441,6 +441,10 @@ h5 {
 }
 
 /*=====DISPLAY NONE PAGE=====*/
+.mainPageNone {
+    display: none;
+}
+
 .createNewContactNone {
     display: none;
 }
