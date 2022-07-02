@@ -1,39 +1,43 @@
-
-.secOne{
+.secOne {
   padding: 20px;
-  border-radius:30px; 
-  background-color:#fbfbf9;
+  border-radius: 30px;
+  background-color: #fbfbf9;
   box-shadow: 2px 2px 5px;
-  width:30%;
+  width: 30%;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
 }
- .img{ 
+
+.img {
   width: 350px;
   height: 150px;
-  margin-top: -45px; 
+  margin-top: -45px;
   margin-bottom: -45px;
-} 
-.inp{
+}
+
+.inp {
   border-radius: 10px;
   border-width: 1px;
   padding: 10px;
   font-size: 0.9em;
 }
-.but{
+
+.but {
   height: 3em;
   color: white;
   border-radius: 10px;
   border: none;
-  background-image: linear-gradient(25deg,#23405a,#005cb2cc);
+  background: linear-gradient(25deg, #23405a, #005cb2cc);
 }
-.lab{
+
+.lab {
   font-size: 1.3em;
 }
-@media only screen and (max-width: 760px){
-  .secOne{
-    width:70%;
+
+@media only screen and (max-width: 760px) {
+  .secOne {
+    width: 70%;
   }
 }
