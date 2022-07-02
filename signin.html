@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="signin.css">
 </head>
 
-<body class="text-center" >
+<body class="text-center" onload="getUserInfo()">
    
 <main class="form-signin w-100 m-auto">
     <form>
@@ -18,11 +18,11 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
   
       <div class="form-floating">
-        <input type="email" class="form-control" id="" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="" placeholder="Password">
+        <input type="password" class="form-control" id="password" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
   
@@ -31,7 +31,7 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button style="color: aliceblue;" class="w-100 btn btn-lg " type="submit">Sign in</button>
+      <button style="color: aliceblue;" class="w-100 btn btn-lg" onclick="signin()" type="button">Sign in</button>
       
     </form>
   </main>

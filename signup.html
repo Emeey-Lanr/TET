@@ -10,36 +10,36 @@
     <link rel="stylesheet" href="signup.css">
 </head>
 
-<body class="d-flex justify-content-center align-items-center pt-4">
+<body class="d-flex justify-content-center align-items-center pt-4" onload="getUserInfo()">
     <section class="secOne  d-flex">
         <img class="img" src="tetnotes.png" alt="">
         <p class="fs-5">Create An Account</p>
         <form class="mb-4 mt-1" action="fisrtName">
             <label class="form-label" for="First Name">
                 First Name<br>
-                <input class="inp form-control" type="text" placeholder="First Name">
+                <input class="inp form-control" type="text" placeholder="First Name" id="fName">
             </label>
         </form>
         <form class="" action="lastName">
             <label class="form-label" for="Last Name">
                 Last Name <br>
-                <input class="inp form-control w-100" type="text" placeholder="Last Name">
+                <input class="inp form-control w-100" type="text" placeholder="Last Name" id="lName">
             </label>
         </form>
         <form class=" mt-4" action="Email">
             <label class="form-label" for="Email">
-                Email <br>
-                <input class="inp form-control" type="text" placeholder="Email">
+                Email Address<br>
+                <input class="inp form-control" type="email" placeholder="Email Address" id="email">
             </label>
         </form>
         <form class=" mt-4" action="password">
             <label for="password form-label">
                 Password <br>
-                <input class="inp form-control" type="text" placeholder="Password">
+                <input class="inp form-control" type="password" placeholder="Password" id="password">
             </label>
         </form>
         <div align="center">
-            <button class="mt-4 but btn">Create An Account</button>
+            <button class="mt-4 but btn" type="submit" onclick="register()">Create An Account</button>
         </div>
     </section>
 
