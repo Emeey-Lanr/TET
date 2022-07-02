@@ -1,4 +1,4 @@
-let user = []
+/*let user = []
 let getUserInfo = () => {
   user = JSON.parse(localStorage.userInfo)
 }
@@ -7,9 +7,9 @@ let signin = () => {
   let pWord = password.value;
   // using check to check if it true then sign in
   let check = false;
-  if (eMl != '' && pWord != ''){
-    for (let index = 0; index < user.length; index++) {
-      if (eMl == user[index].eMail && pWord == user[index].passWord){
+  if (eMl != '' && pWord != '') {
+    for (let i = 0; i < user.length; i++) {
+      if (eMl == user[i].eMail && pWord == user[i].passWord) {
         check = true;
         // setting email and password back to empty after signin in 
         email.value = '';
@@ -17,14 +17,14 @@ let signin = () => {
         break
       }
     }
-    if (check == true){
+    if (check == true) {
       window.location.href = "dashboard.html"
     }
-    else{
+    else {
       alert('Invalid Email or Password')
     }
   }
-  else{
+  else {
     alert('Complete the above information')
   }
-}
+}*/

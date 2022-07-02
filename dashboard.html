@@ -11,9 +11,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-<body>
+<body onload="getUserInfo()">
+    <!--========SIGN UP==============-->
+    <div class="signIn signInNone">
+        <main class="form-signin w-100 m-auto">
+            <form>
+                <img class="mb-4" src="tetnotes.jpg" alt="" width="300px">
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-    <div class="head d-flex justify-content-center align-items-center">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button style="color: aliceblue;" class="w-100 btn btn-lg" onclick="signin()" type="button">Sign
+                    in</button>
+
+            </form>
+        </main>
+    </div>
+    <!--=============================================-->
+    <div class="head head_None d-flex justify-content-center align-items-center">
         <div class="head-input d-flex align-items-center">
             <input type="text">
             <button>
@@ -25,6 +52,7 @@
 
     </div>
 
+
     <main class="mainPage mainPageNone">
 
         <div class="content d-flex justify-content-center align-items-center">
@@ -35,8 +63,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span class="name">Oyelowo</span><br>
-                            <span class="username">@EmeeyLanr</span>
+                            <span id="firName" class="name"></span><br>
+                            <span id="lstName" class="username"></span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -112,8 +140,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span class="name">Oyelowo</span><br>
-                            <span class="username">@EmeeyLanr</span>
+                            <span id="firName" class="name"></span><br>
+                            <span id="lstName" class="username"></span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -181,6 +209,10 @@
                             <th>Phone Number</th>
                             <th>Email</th>
                         </tr>
+                        <tbody id="tbd">
+
+                        </tbody>
+
                     </table>
 
                     <div class="add">

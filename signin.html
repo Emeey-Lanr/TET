@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="signin.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="signin.css">
 </head>
 
 <body class="text-center" onload="getUserInfo()">
-   
-<main class="form-signin w-100 m-auto">
+
+  <main class="form-signin formNone w-100 m-auto">
     <form>
-        <img class="mb-4" src="tetnotes.jpg" alt="" width="300px" >
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-  
+      <img class="mb-4" src="tetnotes.jpg" alt="" width="300px">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
       <div class="form-floating">
         <input type="email" class="form-control" id="email" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
@@ -25,14 +25,14 @@
         <input type="password" class="form-control" id="password" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
-  
+
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
       <button style="color: aliceblue;" class="w-100 btn btn-lg" onclick="signin()" type="button">Sign in</button>
-      
+
     </form>
   </main>
   <script src="signin.js"></script>
