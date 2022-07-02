@@ -27,7 +27,7 @@
   color: white;
   border-radius: 10px;
   border: none;
-  background-color: #266EF1; 
+  background: linear-gradient(25deg,#23405a,#005cb2cc); 
 }
 .lab{
   font-size: 1.3em;
