@@ -65,8 +65,31 @@ let eventBtn = () => showEventPage();
 //NOTE
 let notesBtn = () => showNotePage();
 
+var nam = [
+    { firstName: 'Ayo', lastName: 'Bann', eMail: 'Zena', passWord: 'uyt46789', contact: [], note: [], event: [], },
+    { firstName: 'Bigss', lastName: 'Ann', eMail: 'ggna', passWord: 'uyt46789', contact: [], note: [], event: [], },
+    { firstName: 'Lover', lastName: 'Nan', eMail: 'na', passWord: 'uyt46789', contact: [], note: [], event: [], }
+]
+let saveNoteBtn = () => {
+    var noteBook = { notePad: note.value }
+    for (let i = 0; i < nam.length; i++) {
+        if (nam[i].firstName == 'Ayo' && nam[i].eMail == 'Zena') {
+            nam[i].note.push(noteBook.notePad);
+        }
+    }
+    console.log(nam)
+
+    for (let c = 0; c < nam[c].note.length; c++) {
+        if (nam[c].firstName == 'Ayo' && nam[c].eMail == 'Zena') {
+            console.log(nam[c].note[c])
+        }
+    }
+    localStorage.user = JSON.stringify(nam)
+}
+
 //SETTINGS
 let settingsBtn = () => showSettingPage();
+
 
 let editProfileBtn = () => {
     editProfile.classList.remove('editprofileNone')
@@ -81,3 +104,5 @@ let saveEditProfileBtn = () => {
 let saveDelProfileBtn = () => {
     window.location.href = 'signup.html';
 }
+
+
