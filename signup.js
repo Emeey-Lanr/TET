@@ -8,8 +8,11 @@ let user = [
     contact: [{ contactFirstName: 'emeey', contactLastName: 'Lanr', contactPhoneNumber: 8152304412, contactEmailAd: 'email04@gmail.com' },
     { contactFirstName: 'emeey', contactLastName: 'Lanr', contactPhoneNumber: 8152304412, contactEmailAd: 'email04@gmail.com' }],
     event: [],
-    note: [],
+    note: [{
+      noteInfo: [{ noteTitle: 'Name', noteContent: `I'm born to be great, no one can stop my shine` }, { noteTitle: `I'm Emeey`, noteContent: `Emeey will be great` }]
+    }],
   }
+
 ]
 let getUserInfo = () => {
   if (localStorage.userInfo) {

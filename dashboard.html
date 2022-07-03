@@ -212,6 +212,9 @@
                         <tbody id="tbd">
 
                         </tbody>
+                        <tbody id="tbd1">
+
+                        </tbody>
 
                     </table>
 
@@ -449,20 +452,23 @@
 
 
                     <div class="contact">NOTE</div>
+                    <div id="pp" class="nottileboardhouse">
+
+                    </div>
 
                     <div class="add">
-                        <button>
+                        <button onclick="writenote()">
                             <span class="material-icons">
                                 edit
                             </span>
                         </button>
                     </div>
-                    <div class="notetitle">
+                    <div class="notetitle noteTitleNone">
                         <label for="">Title</label>
-                        <input type="text">
+                        <input type="text" id="noteTitleName">
                     </div>
-                    <div>
-                        <textarea class="note" id="note"></textarea>
+                    <div class="note noteNone">
+                        <textarea class="note" id="notePad"></textarea>
                         <div class="notebtn d-flex justify-content-end">
                             <button onclick="saveNoteBtn()">Save</button>
                         </div>
