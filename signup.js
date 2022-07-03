@@ -33,7 +33,7 @@ let register = () => {
       passWord: pWord,
       contact: [],
       event: [],
-      note: [],
+      note: [{ noteInfo: [] }],
 
     }
     user.push(newUser)

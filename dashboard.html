@@ -14,35 +14,38 @@
 <body onload="getUserInfo()">
     <!--========SIGN UP==============-->
     <div class="signIn signInNone">
-        <main class="form-signin w-100 m-auto">
-            <form>
-                <img class="mb-4" src="tetnotes.jpg" alt="" width="300px">
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="back">
+            <main class="form-signin w-100 m-auto">
+                <form>
+                    <!--<img class="mb-4" src="tetnotes.jpg" alt="" width="300px">-->
+                    <h1 class="h1">TET Notes</h1>
+                    <span class="h3 text-center fs-10 text-light mb-3 fw-normal">Please sign in</span>
 
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button style="color: aliceblue;" class="w-100 btn btn-lg" onclick="signin()" type="button">Sign
-                    in</button>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button style="color: aliceblue;" class="w-100 btn btn-lg" onclick="signin()" type="button">Sign
+                        in</button>
 
-            </form>
-        </main>
+                </form>
+            </main>
+        </div>
     </div>
     <!--=============================================-->
-    <div class="head head_None d-flex justify-content-center align-items-center">
+    <!-- <div class="head head_None d-flex justify-content-center align-items-center">
         <div class="head-input d-flex align-items-center">
-            <input type="text">
+            <input type="checkbox">
             <button>
                 <span class="material-icons">search</span>
             </button>
@@ -50,7 +53,7 @@
         </div>
 
 
-    </div>
+    </div>-->
 
 
     <main class="mainPage mainPageNone">
@@ -63,8 +66,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span id="firName" class="name"></span><br>
-                            <span id="lstName" class="username"></span>
+                            <span id="firName1" class="name"></span><br>
+                            <span id="lstName1" class="username"></span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -140,8 +143,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span id="firName" class="name"></span><br>
-                            <span id="lstName" class="username"></span>
+                            <span id="firName2" class="name"></span><br>
+                            <span id="lstName2" class="username"></span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -291,8 +294,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span class="name">Oyelowo</span><br>
-                            <span class="username">@EmeeyLanr</span>
+                            <span id="firName3" class="name">Oyelowo</span><br>
+                            <span id="lstName3" class="username">@EmeeyLanr</span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -384,6 +387,7 @@
         </div>
     </main>
 
+
     <!--====================================================================-->
     <!--NOTES-->
     <main class="Notes notesNone">
@@ -395,8 +399,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span class="name">Oyelowo</span><br>
-                            <span class="username">@EmeeyLanr</span>
+                            <span id="firName4" class="name">Oyelowo</span><br>
+                            <span id="lstName4" class="username">@EmeeyLanr</span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -452,9 +456,10 @@
 
 
                     <div class="contact">NOTE</div>
-                    <div id="pp" class="nottileboardhouse">
+                    <div id="pp" class="nottileboardhouse nottileboardhouseNon">
 
                     </div>
+
 
                     <div class="add">
                         <button onclick="writenote()">
@@ -489,8 +494,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span class="name">Oyelowo</span><br>
-                            <span class="username">@EmeeyLanr</span>
+                            <span id="firName5" class="name">Oyelowo</span><br>
+                            <span id="lstName5" class="username">@EmeeyLanr</span>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -620,7 +625,10 @@
         </div>
     </div>
 
+
     <script src="dashboard.js"></script>
+    <script src="edit.js"></script>
+    <script src="delete.js"></script>
 
 </body>
 

@@ -6,6 +6,7 @@ signPage.classList.remove('signInNone');
 //LANDING PAGE
 const mainPage = document.querySelector('.mainPage');
 //let user = [];
+
 let user = JSON.parse(localStorage.userInfo)
 let getUserInfo = () => {
     user = JSON.parse(localStorage.userInfo)
@@ -38,27 +39,42 @@ let saveContact = () => {
 
 //===================================
 //let paraGraph = `<p id="paragraph"  onclick="loadNoteContent()></p>`
-let m;
+
 let loadNoteTitle = () => {
     for (let l = 0; l < user.length; l++) {
         if (email.value == user[l].eMail && password.value == user[l].passWord) {
-            //noteTitlep.classList.remove('noteTitlepNone');
+
             for (let nt = 0; nt < user[l].note[l].noteInfo.length; nt++) {
                 pp.innerHTML += `<p id="paragraph" class="paraG"  onclick="loadNoteContent()">${user[l].note[l].noteInfo[nt].noteTitle}</p> <br>`;
             }
-            console.log(paragraph.innerHTML)
+
 
         }
     }
 
-    //console.log(pp.innerHTML)
+
 
 }
 
 
 
-var first_Name = document.querySelectorAll('.name');
-var last_Name = document.querySelectorAll('.username');
+
+
+let First_Name = (first_Name,) => {
+    firName1.innerHTML = first_Name;
+    firName2.innerHTML = first_Name;
+    firName3.innerHTML = first_Name;
+    firName4.innerHTML = first_Name;
+    firName4.innerHTML = first_Name;
+
+}
+let Last_Name = (last_Name) => {
+    lstName1.innerHTML = last_Name;
+    lstName2.innerHTML = last_Name;
+    lstName3.innerHTML = last_Name;
+    lstName4.innerHTML = last_Name;
+    lstName5.innerHTML = last_Name;
+}
 let signin = () => {
     let eMl = email.value;
     let pWord = password.value;
@@ -69,8 +85,8 @@ let signin = () => {
         for (let i = 0; i < user.length; i++) {
             if (eMl == user[i].eMail && pWord == user[i].passWord) {
                 check = true;
-                first_Name = user[i].firstName;
-                last_Name = `@${user[i].lastName}`;
+                First_Name(user[i].firstName);
+                Last_Name(`@${user[i].lastName}`);
                 // setting email and password back to empty after signin in 
                 //email.value = '';
                 //password.value = '';
@@ -108,7 +124,9 @@ const eventPage = document.querySelector('.eventPage');
 const notePage = document.querySelector('.Notes');
 const noteTitle = document.querySelector('.notetitle');
 const note = document.querySelector('.note');
+const noteTitleBoardHouse = document.querySelector('.nottileboardhouse');
 
+noteTitleBoardHouse.classList.remove('nottileboardhouseNon');
 
 //SETTING PAGE
 const settingsPage = document.querySelector('.settingpage');
@@ -181,15 +199,15 @@ let saveContactBtn = () => {
                 user[c].contact.push(contactInfo);
                 localStorage.userInfo = JSON.stringify(user)
                 tbd1.innerHTML = `<tr>`
-                tbd1.innerHTML = `<td>${user[c].contact[c].contactFirstName}</td>
-                                   <td>${user[c].contact[c].contactLastName}</td>
-                                  <td>${user[c].contact[c].contactPhoneNumber}</td>
-                                     <td>${user[c].contact[c].contactEmailAd}</td>`
+                tbd1.innerHTML += `<td>${contactFirstName.value}</td>
+                                   <td>${contactLastName.value}</td>
+                                    <td>${contactPhone.value}</td>
+                                    <td>${contactEmail.value}</td>`
 
                 tbd1.innerHTML += `</tr>`
             }
 
-            console.log(tbd.innerHTML)
+            console.log(tbd1.innerHTML)
         }
     }
     contactFirstName.value = '';
@@ -218,18 +236,26 @@ const hideNote = () => {
     note.classList.add('noteNone');
 }
 let writenote = () => {
+    noteTitleBoardHouse.classList.add('nottileboardhouseNon')
     showNote();
 }
 let saveNoteBtn = () => {
     hideNote();
-    const noteMemory = {
-        noteInfo: [{ noteTitle: noteTitleName.value, noteContent: notePad.value }],
-    }
+    // const noteMemory = {
+    //  noteInfo: [{ noteTitle: noteTitleName.value, noteContent: notePad.value }],
+    //}
+    const noteMemory = { noteTitle: noteTitleName.value, noteContent: notePad.value }
     for (let Index = 0; Index < user.length; Index++) {
         if (email.value == user[Index].eMail && password.value == user[Index].passWord) {
             if (noteTitleName.value == '' && notePad.value == '') {
                 alert('nothing to save')
             } else {
+
+                user[Index].note[0].noteInfo.push(noteMemory);
+                localStorage.userInfo = JSON.stringify(user);
+                noteTitleBoardHouse.classList.remove('nottileboardhouseNon');
+
+                pp.innerHTML += `<p>${noteTitleName.value} <p>`
 
             }
 
@@ -252,12 +278,13 @@ let loadNoteContent = () => {
     for (let m = 0; m < user.length; m++) {
         if (email.value == user[m].eMail && password.value == user[m].passWord) {
             for (let tn = 0; tn < user[m].note[m].noteInfo.length; tn++) {
-                if (paragraph.innerText == user[m].note[m].noteInfo[tn].noteTitle) {
-                    console.log(50)
-                    note.classList.remove('noteNone');
-                    notePad.value += user[m].note[m].noteInfo[tn].noteContent;
-
-                }
+                //if (paragraph.innerText == user[m].note[m].noteInfo[tn].noteTitle) {
+                console.log(50)
+                note.classList.remove('noteNone');
+                noteTitleBoardHouse.classList.add('nottileboardhouseNon')
+                notePad.value += user[m].note[m].noteInfo[tn].noteContent;
+                text.value += user[m].note[m].noteInfo[tn].noteTitle;
+                // }
             }
 
 
