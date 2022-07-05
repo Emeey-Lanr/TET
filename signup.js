@@ -5,8 +5,8 @@ let user = [
     lastName: 'Samuel',
     eMail: 'sam@gmail.com',
     passWord: '4567890',
-    contact: [{ contactFirstName: 'emeey', contactLastName: 'Lanr', contactPhoneNumber: 8152304412, contactEmailAd: 'email04@gmail.com' },
-    { contactFirstName: 'emeey', contactLastName: 'Lanr', contactPhoneNumber: 8152304412, contactEmailAd: 'email04@gmail.com' }],
+    contact: [{ contactFirstName: 'emeey', contactLastName: 'Lanr', contactPhoneNumber: 8152304412, contactEmailAd: 'email04@gmail.com', contactEdit: 'Edit' },
+    { contactFirstName: 'emeey', contactLastName: 'Lanr', contactPhoneNumber: 8152304412, contactEmailAd: 'email04@gmail.com', contactEdit: 'Edit' }],
     event: [],
     note: [{
       noteInfo: [{ noteTitle: 'Name', noteContent: `I'm born to be great, no one can stop my shine` }, { noteTitle: `I'm Emeey`, noteContent: `Emeey will be great` }]

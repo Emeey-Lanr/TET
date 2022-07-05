@@ -25,13 +25,13 @@
                         <input type="email" class="form-control" id="email" placeholder="name@example.com">
                         <label for="floatingInput">Email address</label>
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating mt-3">
                         <input type="password" class="form-control" id="password" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                     </div>
 
-                    <div class="checkbox mb-3">
-                        <label>
+                    <div class="checkbox ">
+                        <label class="text-light">
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
@@ -211,10 +211,12 @@
                             <th>Last Name</th>
                             <th>Phone Number</th>
                             <th>Email</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                         <tbody id="tbd">
 
-                        </tbody>
+                        </tbody>-->
                         <tbody id="tbd1">
 
                         </tbody>
@@ -239,15 +241,18 @@
 
                 <div class="d-flex justify-content-evenly align-items-center px-2">
                     <span class="newconback">
-                        <button onclick="contactBtn()">
+                        <button onclick="contactBackBtn()">
                             &leftarrow;
                         </button>
 
                     </span>
-                    <span>Create new contact</span>
+                    <span id="newContext" class="newContext"></span>
                     <span class="newconsave">
-                        <button onclick="saveContactBtn()">
+                        <button onclick="saveContactBtn()" class="saveContactBtn saveContactBtnNone">
                             SAVE
+                        </button>
+                        <button onclick="editContactBtn()" class="editContactBtn editContactBtnNone">
+                            Edit
                         </button>
                     </span>
                 </div>
@@ -353,33 +358,22 @@
                     </header>
                     <div class="contact">EVENTS</div>
 
+                    <div class="" id="eventHouseing">
 
-                    <div class="event">
-                        <div>
-                            <button class="but1">
-                                <span class="material-icons">star</span>
-                            </button>
-                            <span class="subName">ASH BIRTHDAY</span>
 
-                        </div>
-                        <div>
-                            <div>
-                                <span class="date">18-200-200</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <button>
-                                    <span class="material-icons">content_copy</span>
-                                </button>
-                                <button style="width: 30px;">
-                                    <span class="material-icons ps-2">edit_pen</span>
-                                </button>
-                                <button>
-                                    <span class="material-icons">delete_outline</span>
-                                </button>
-                            </div>
-                        </div>
+                    </div>
+                    <div id="loadEventMaker">
+
+                    </div>
+
+
+
+                    <div class="addEvent">
+                        <button onclick="addEvent()">
+                            <span>
+                                &plus;
+                            </span>
+                        </button>
                     </div>
 
                 </div>
@@ -387,6 +381,45 @@
         </div>
     </main>
 
+    <div class="eventList eventListNone w-100">'
+        <div class="makelist">
+            <div class="makelistBtn d-flex justify-content-between align-items-center">
+                <button onclick="exitEvent()" class="btn-1">
+                    <span style="font-size: 2rem;">
+                        &leftarrow;
+                    </span>
+                </button>
+                <button onclick="saveEvent()" class="btn-2">Save</button>
+            </div>
+            <div class="eventTitle">
+                <input type="text" placeholder="Add Title" id="eventTitleInput">
+            </div>
+            <hr>
+            <div class="d-flex">
+                <span class="material-icons">
+                    events
+                </span>
+                <div>
+                    <span class="eventName">Events</span><br>
+                    <span id="eventEmail" class="eventEmail"></span>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <span class="material-icons">
+                    watch
+                </span>
+                <div class="eventTime d-flex justify-content-evenly">
+                    <input type="date" id="eventDate">
+                    <input type="time" id="eventTime">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!--====================================================================-->
     <!--NOTES-->
@@ -459,9 +492,17 @@
                     <div id="pp" class="nottileboardhouse nottileboardhouseNon">
 
                     </div>
+                    <div id="noteTexxt " class="noteTexxt noteTexxtNone">
+
+
+                    </div>
+                    <div id="noteTexxtt2" class="noteTexxtt2  noteTexxtt2None">
+
+                    </div>
 
 
                     <div class="add">
+
                         <button onclick="writenote()">
                             <span class="material-icons">
                                 edit
@@ -621,6 +662,9 @@
                 </div>
 
             </div>
+
+        </div>
+        <div id="bbbtn">
 
         </div>
     </div>

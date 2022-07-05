@@ -69,8 +69,15 @@
     border-top-right-radius: 0;
 }
 
-button {
+form button {
+
     background: linear-gradient(25deg, #23405a, #005cb2cc);
+}
+
+form button:hover {
+    transition: 1s ease-out all;
+    border: none;
+    transform: translateY(9px);
 }
 
 .signInNone {
@@ -246,7 +253,7 @@ h1 {
 }
 
 .subName {
-    font-family: tet;
+    font-family: sans-serif;
 }
 
 .date {
@@ -298,7 +305,13 @@ h1 {
     top: 0%;
 }
 
+.saveContactBtnNone {
+    display: none;
+}
 
+.editContactBtnNone {
+    display: none;
+}
 
 .newContact {
     width: 26%;
@@ -343,6 +356,104 @@ h1 {
 
 .newContact input:focus {
     outline: none;
+}
+
+.table button {
+    border: none;
+    background: none;
+    margin-left: 5px;
+}
+
+/*EVENT*/
+.eventList {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.768);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+}
+
+.eventListNone {
+    display: none;
+}
+
+.makelist {
+    padding-bottom: 100px;
+}
+
+.makelistBtn {
+    margin-bottom: 30px;
+    padding: 10px 10px;
+}
+
+.makelistBtn .btn-1 {
+    background: none;
+    border: none;
+    color: black;
+
+}
+
+.makelistBtn .btn-2 {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.makelistBtn .btn-2:hover {
+    transition: 0.9s all ease-in-out;
+    transform: translateY(10px);
+    color: white;
+    border: none;
+    background: linear-gradient(25deg, #23405a, #005cb2cc);
+}
+
+.makelist {
+    width: 26%;
+    background-color: #fafafa;
+    border-radius: 10px;
+
+}
+
+.eventTitle input {
+    width: 90%;
+    border: none;
+    padding: 10px;
+    background: transparent;
+
+}
+
+.eventTitle input::placeholder {
+    font-size: 1.5rem;
+}
+
+.eventTitle input:focus {
+    outline: none;
+
+}
+
+.addEvent {
+    position: absolute;
+    bottom: 0%;
+    right: 17%;
+    width: 80px;
+
+}
+
+.addEvent button {
+    border: none;
+    background: none;
+    text-align: center;
+}
+
+.addEvent span {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #001529;
 }
 
 /*====NOTE===*/
@@ -391,6 +502,21 @@ h1 {
 }
 
 .noteNone {
+    display: none;
+}
+
+.noteTexxtNone {
+    display: none;
+}
+
+.noteTexxtt2 p {
+    font-size: 1rem;
+    color: black;
+    font-weight: 400;
+    line-height: 2;
+}
+
+.noteTexxtt2None {
     display: none;
 }
 
@@ -587,6 +713,14 @@ h5 {
     .search button {
         margin-left: 0;
     }
+
+    .makelist {
+        width: 40%;
+    }
+
+    .newContact {
+        width: 40%;
+    }
 }
 
 @media screen and (max-width:1000px) {
@@ -613,6 +747,10 @@ h5 {
     .editprofileContent {
         width: 60%;
     }
+
+    .eventList {
+        height: 140vh;
+    }
 }
 
 @media screen and (max-width:650px) {
@@ -634,10 +772,66 @@ h5 {
     .editprofileContent {
         width: 60%;
     }
+
+    .eventlist {
+        height: 200vh;
+    }
+
+    .makelist {
+        width: 70%;
+    }
+
+    .newContact {
+        width: 80%;
+    }
+
+    .icon {
+        padding-left: 30px;
+    }
+
+    .iconm {
+        padding-left: 20px;
+    }
 }
 
 @media screen and (max-width:470px) {
     .editprofileContent {
         width: 80%;
+    }
+
+    .icon {
+        padding-left: 20px;
+    }
+
+    .iconm {
+        padding-left: 10px;
+    }
+
+}
+
+@media screen and (max-width:404px) {
+    .eventList {
+        height: 200vh;
+    }
+
+    .makelist {
+        width: 90%;
+
+    }
+
+    .newContact {
+        width: 80%;
+    }
+
+    .createNewContact {
+        width: 100%;
+    }
+
+    .newContact input {
+        width: 90%;
+    }
+
+    .newContext {
+        font-size: 0.8rem;
     }
 }

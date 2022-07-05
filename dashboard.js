@@ -7,54 +7,107 @@ signPage.classList.remove('signInNone');
 const mainPage = document.querySelector('.mainPage');
 //let user = [];
 
-let user = JSON.parse(localStorage.userInfo)
+let user = JSON.parse(localStorage.userInfo);
 let getUserInfo = () => {
-    user = JSON.parse(localStorage.userInfo)
+    if (localStorage.userInfo) {
+        user = JSON.parse(localStorage.userInfo)
 
+    }
 }
+getUserInfo();
 
 //this a function that loads up the the user's contact info when he or she signs up and 
 //it get invoked in the signup button
+
 let saveContact = () => {
-    console.log(user[0].contact[0].contactFirstName)
+
     tbd.innerHTML = `<tr>`
     for (let ct = 0; ct < user.length; ct++) {
         if (email.value == user[ct].eMail && password.value == user[ct].passWord) {
             for (let contactindex = 0; contactindex < user[ct].contact.length; contactindex++) {
-                tbd.innerHTML += `<td>${user[ct].contact[contactindex].contactFirstName}</td>
+                tbd.innerHTML += `<td>${user[ct].contact[contactindex].contactFirstName}  </td>
                            <td>${user[ct].contact[contactindex].contactLastName}</td>
                           <td>${user[ct].contact[contactindex].contactPhoneNumber}</td>
-                             <td>${user[ct].contact[contactindex].contactEmailAd}</td>`
+                             <td>${user[ct].contact[contactindex].contactEmailAd}</td>
+                              <td><button class= "editbtn" onclick="editContact()">${user[ct].contact[contactindex].contactEdit}</button></td>
+                              <td><button>Delete</button></td>`
 
 
             }
 
             console.log(user[ct])
         }
-        tbd.innerHTML += `</tr>`
+        tbd.innerHTML += `</tr > `
         console.log(tbd.innerHTML)
 
     }
 }
+//====EVENT======
+let loadEvent = () => {
+    alert(50)
+    for (let lE = 0; lE < user.length; lE++) {
 
-//===================================
-//let paraGraph = `<p id="paragraph"  onclick="loadNoteContent()></p>`
+        if (email.value == user[lE].eMail && password.value == user[lE].passWord) {
+            for (let e = 0; e < user[lE].event.length; e++) {
+                console.log(user[lE].event[e].eventName)
+                eventHouseing.innerHTML += `<div class="event" id = "eventhouse">
+                                              <div>
+                                                   <button class="but1">
+                                                     <span class="material-icons">star</span>
+                                                     </button>
+                                               <span class="subName">${user[lE].event[e].eventName}</span>
+                                              </div>
+                                             <div>
+                                               <span class="date">${user[lE].event[e].eventDate}</span>
+                                             </div >
+                                             <div>
+                                                 <button>
+                                                  <span class="material-icons">content_copy</span>
+                                                </button>
+                                              <button style="width: 30px;">
+                                             <span class="material-icons ps-2">edit_pen</span>
+                                              </button>
+                                            <button>
+                                             <span class="material-icons">delete_outline</span>
+                                             </button>
+                                            </div>
+                                   </div >
+                                   </div>`
 
-let loadNoteTitle = () => {
-    for (let l = 0; l < user.length; l++) {
-        if (email.value == user[l].eMail && password.value == user[l].passWord) {
 
-            for (let nt = 0; nt < user[l].note[l].noteInfo.length; nt++) {
-                pp.innerHTML += `<p id="paragraph" class="paraG"  onclick="loadNoteContent()">${user[l].note[l].noteInfo[nt].noteTitle}</p> <br>`;
             }
-
-
         }
     }
 
+}
+
+//===================================
+
+
+let loadNoteTitle = () => {
+    let h = false
+    user.map((item, index) => {
+        if (item.eMail == email.value) {
+            h = true;
+            user[index].note.map((dex, indd) => {
+                if (h) {
+                    user[index].note[indd].noteInfo.map((c, n) => {
+                        console.log(c)
+                    })
+                }
+
+
+            })
+        }
+    })
 
 
 }
+
+
+
+
+
 
 
 
@@ -83,7 +136,7 @@ let signin = () => {
     let check = false;
     if (eMl != '' && pWord != '') {
         for (let i = 0; i < user.length; i++) {
-            if (eMl == user[i].eMail && pWord == user[i].passWord) {
+            if (/*eMl*/email.value == user[i].eMail && /*pWord*/ password.value == user[i].passWord) {
                 check = true;
                 First_Name(user[i].firstName);
                 Last_Name(`@${user[i].lastName}`);
@@ -93,6 +146,7 @@ let signin = () => {
                 break
             }
         }
+
         if (check == true) {
             // window.location.href = "dashboard.html"
             signPage.classList.add('signInNone');
@@ -106,8 +160,13 @@ let signin = () => {
     else {
         alert('Complete the above information')
     }
+
     saveContact();
     loadNoteTitle();
+    eventEmail.innerHTML = email.value;
+    loadEvent();
+
+
 }
 
 
@@ -115,6 +174,9 @@ let signin = () => {
 //CONTACT
 const contactPage = document.querySelector('.contactPage');
 const createNewContact = document.querySelector('.createNewContact')
+const saveNewContactBtn = document.querySelector('.saveContactBtn');
+const editContactBtnn = document.querySelector('.editContactBtn');
+
 
 //EVENT PAGE
 const eventPage = document.querySelector('.eventPage');
@@ -125,6 +187,8 @@ const notePage = document.querySelector('.Notes');
 const noteTitle = document.querySelector('.notetitle');
 const note = document.querySelector('.note');
 const noteTitleBoardHouse = document.querySelector('.nottileboardhouse');
+const eventList = document.querySelector('.eventList');
+const notetext2 = document.querySelector('.noteTexxtt2')
 
 noteTitleBoardHouse.classList.remove('nottileboardhouseNon');
 
@@ -168,23 +232,74 @@ const showSettingPage = () => {
     eventPage.classList.add('eventPageNone');
 }
 //CONTACT
-let contactBtn = () => showContactPage();
+
+let contactBtn = () => {
+    saveContact();
+    showContactPage();
+    var edit = document.querySelectorAll('.editbtn');
+    for (let u = 0; u < user.length; u++) {
+        if (email.value == user[u].eMail && password.value == user[u].passWord) {
+            for (let m = 0; m < user[u].contact.length; m++) {
+                for (let b = 0; b < edit.length; b++) {
+                    edit[b].addEventListener('click', function () {
+                        if (user[u].contact[m].contactEdit) {
+                            editContactBtnn.classList.remove('editContactBtnNone')
+                            createNewContact.classList.remove('createNewContactNone');
+                            contactFirstName.value = user[u].contact[m].contactFirstName;
+                            contactLastName.value = user[u].contact[m].contactLastName;
+                            contactPhone.value = user[u].contact[m].contactPhoneNumber;
+                            contactEmail.value = user[u].contact[m].contactEmailAd;
+                        }
+                    })
+                }
+
+            }
+        }
+    }
+
+
+}
+let editContactBtn = () => {
+    var contactInfo = {
+        contactFirstName: contactFirstName.value,
+        contactLastName: contactLastName.value,
+        contactPhoneNumber: contactPhone.value,
+        contactEmailAd: contactEmail.value,
+        contactEdit: 'Edit',
+
+    }
+    for (let u = 0; u < user.length; u++) {
+        if (email.value == user[u].eMail && password.value == user[u].passWord) {
+            for (let m = 0; m < user[u].contact.length; m++) {
+                user[m].contact.splice(m, 1)
+                user[m].contact.push(contactInfo);
+                localStorage.userInfo = JSON.stringify(user);
+                createNewContact.classList.add('createNewContactNone');
+
+            }
+
+        }
+    }
+}
 
 let addContactBtn = () => {
     createNewContact.classList.remove('createNewContactNone');
+    newContext.innerHTML = `Create New Conatact`
+    saveNewContactBtn.classList.remove('saveContactBtnNone');
 }
 
 
 //it saves the contact when the input are filled up and it gets displayed in the table;
 
 let saveContactBtn = () => {
-
+    bbbtn.innerHTML = `<button>Delete<button>`
 
     var contactInfo = {
         contactFirstName: contactFirstName.value,
         contactLastName: contactLastName.value,
         contactPhoneNumber: contactPhone.value,
         contactEmailAd: contactEmail.value,
+        contactEdit: 'Edit',
 
     }
     if (contactFirstName.value == '' || contactPhone.value == '') {
@@ -202,7 +317,9 @@ let saveContactBtn = () => {
                 tbd1.innerHTML += `<td>${contactFirstName.value}</td>
                                    <td>${contactLastName.value}</td>
                                     <td>${contactPhone.value}</td>
-                                    <td>${contactEmail.value}</td>`
+                                    <td>${contactEmail.value}</td>
+                                    <td><button>Edit</button></td>
+                                    <td><button>Delete</button></td>`
 
                 tbd1.innerHTML += `</tr>`
             }
@@ -217,14 +334,85 @@ let saveContactBtn = () => {
 
 }
 
+let contactBackBtn = () => {
+    createNewContact.classList.add('createNewContactNone')
+    contactFirstName.value = '';
+    contactLastName.value = '';
+    contactPhone.value = '';
+    contactEmail.value = ''
+}
 
 
 
 //EVENT
-let eventBtn = () => showEventPage();
 
+
+let eventBtn = () => {
+    showEventPage()
+
+};
+let addEvent = () => {
+    eventList.classList.remove('eventListNone')
+}
+let exitEvent = () => {
+    eventList.classList.add('eventListNone')
+    eventTitleInput.value = '';
+    eventDate.value = '';
+}
+let saveEvent = () => {
+    let eventInfo = {
+        eventName: eventTitleInput.value, eventDate: eventDate.value, eventTime: eventTime.value
+    }
+    let h = false;
+    for (let e = 0; e < user.length; e++) {
+        if (email.value == user[e].eMail && password.value == user[e].passWord) {
+            if (eventTitleInput.value !== '') {
+                console.log(30)
+                user[e].event.push(eventInfo);
+                localStorage.userInfo = JSON.stringify(user)
+                eventList.classList.add('eventListNone')
+                loadEventMaker.innerHTML += `<div class="event" id = "eventhouse">
+                <div>
+                     <button class="but1">
+                       <span class="material-icons">star</span>
+                       </button>
+                 <span class="subName">${eventTitleInput.value}</span>
+                </div>
+               <div>
+                 <span class="date">${eventDate.value}</span>
+               </div >
+               <div>
+                   <button>
+                    <span class="material-icons">content_copy</span>
+                  </button>
+                <button style="width: 30px;">
+               <span class="material-icons ps-2">edit_pen</span>
+                </button>
+              <button>
+               <span class="material-icons">delete_outline</span>
+               </button>
+              </div>
+     </div >
+     </div>`
+            } else {
+                alert('Input a title and date')
+            }
+
+            // h = true
+            // break
+        }
+
+    }
+
+}
 //NOTE
-let notesBtn = () => showNotePage();
+let notesBtn = () => {
+
+    showNotePage()
+    loadNoteTitle();
+    notetext2.classList.remove('noteTexxtt2None')
+}
+    ;
 
 const showNote = () => {
     noteTitle.classList.remove('noteTitleNone');
@@ -237,13 +425,16 @@ const hideNote = () => {
 }
 let writenote = () => {
     noteTitleBoardHouse.classList.add('nottileboardhouseNon')
+    notetext2.classList.add('noteTexxtt2None');
     showNote();
 }
+
+let noteTexxt = document.querySelector('.noteTexxt');
+
+
 let saveNoteBtn = () => {
     hideNote();
-    // const noteMemory = {
-    //  noteInfo: [{ noteTitle: noteTitleName.value, noteContent: notePad.value }],
-    //}
+    notetext2.classList.remove('noteTexxtt2None')
     const noteMemory = { noteTitle: noteTitleName.value, noteContent: notePad.value }
     for (let Index = 0; Index < user.length; Index++) {
         if (email.value == user[Index].eMail && password.value == user[Index].passWord) {
@@ -254,8 +445,10 @@ let saveNoteBtn = () => {
                 user[Index].note[0].noteInfo.push(noteMemory);
                 localStorage.userInfo = JSON.stringify(user);
                 noteTitleBoardHouse.classList.remove('nottileboardhouseNon');
+                noteTexxt.classList.remove('noteTexxtNone')
 
-                pp.innerHTML += `<p>${noteTitleName.value} <p>`
+                //pp.innerHTML += `<p>${noteTitleName.value} <p>`
+                noteTexxt.innerHTML += `<h4>${noteTitleName.value}</h4> <br> <p>${notePad.value}</p>`
 
             }
 
@@ -263,10 +456,6 @@ let saveNoteBtn = () => {
     }
 
 
-    bb[0].note[0].note1.push(bbc)
-    console.log(bb)
-    //noteTitleBoard.innerHTML = noteTitleName.value;
-    //noteTitlep.classList.remove('noteTitlepNone');
 }
 
 //when th p is 
@@ -274,7 +463,6 @@ let saveNoteBtn = () => {
 
 
 let loadNoteContent = () => {
-    alert('20')
     for (let m = 0; m < user.length; m++) {
         if (email.value == user[m].eMail && password.value == user[m].passWord) {
             for (let tn = 0; tn < user[m].note[m].noteInfo.length; tn++) {
