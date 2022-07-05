@@ -1,21 +1,26 @@
 let i;
 let userEdit;
-const settingsBtn = () => {
-  settingsPage.classList.remove('settingpageNone');
-  notePage.classList.add('notesNone');
-  mainPage.classList.add('mainPageNone');
-  contactPage.classList.add('contactPageNone');
-  eventPage.classList.add('eventPageNone'); 
-}
 let editProfileBtn = () => {
   editProfile.classList.remove('editprofileNone')
   userEdit = JSON.parse(localStorage.userInfo)
-  i = JSON.parse(localStorage.index)  
+  i = JSON.parse(localStorage.index)
+  ftName.value = userEdit[i].firstName
+  ltName.value = userEdit[i].lastName;
+  eMl.value = userEdit[i].eMail;
+  pWord.value = userEdit[i].passWord;
 }
 const saveEditProfileBtn = () => {
-  let firstName = ftName.value;
-  let lastName = ltName.value;
-  let eMail = eMl.value;
-  let passWord = pWord.value;
-  console.log(firstName ,lastName,eMail,passWord)
+  let fName = ftName.value;
+  let lName = ltName.value;
+  let eml = eMl.value;
+  let pwd = pWord.value;
+  userEdit[i] = {
+    firstName : fName ,
+    lastName : lName,
+    eMail : eml,
+    passWord : pwd
+  }
+  localStorage.userInfo = JSON.stringify(userEdit)
+  alert('Account details sucessfully changed')
+  window.location.href = "dashboard.html"
 }

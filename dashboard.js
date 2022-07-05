@@ -291,22 +291,28 @@ let loadNoteContent = () => {
 
 
 //SETTINGS
-
+const settingsBtn = () => {
+    settingsPage.classList.remove('settingpageNone');
+    notePage.classList.add('notesNone');
+    mainPage.classList.add('mainPageNone');
+    contactPage.classList.add('contactPageNone');
+    eventPage.classList.add('eventPageNone'); 
+  }
 
 
 // let editProfileBtn = () => {
 //     editProfile.classList.remove('editprofileNone')
 // }
 
-let delProfileBtn = () => {
-    delProfile.classList.remove('delprofileNone')
-}
+// let delProfileBtn = () => {
+//     delProfile.classList.remove('delprofileNone')
+// }
 // let saveEditProfileBtn = () => {
 //     editProfile.classList.add('editprofileNone')
 // }
-let saveDelProfileBtn = () => {
-    window.location.href = 'signup.html';
-}
+// let saveDelProfileBtn = () => {
+//     window.location.href = 'signup.html';
+// }
 
 
 
