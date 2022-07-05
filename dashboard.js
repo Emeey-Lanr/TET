@@ -84,6 +84,7 @@ let signin = () => {
     if (eMl != '' && pWord != '') {
         for (let i = 0; i < user.length; i++) {
             if (eMl == user[i].eMail && pWord == user[i].passWord) {
+                localStorage.index = JSON.stringify(i)
                 check = true;
                 First_Name(user[i].firstName);
                 Last_Name(`@${user[i].lastName}`);
@@ -160,13 +161,7 @@ const showNotePage = () => {
     settingsPage.classList.add('settingpageNone');
 }
 ////it hides the remaing pages except for the Setting page
-const showSettingPage = () => {
-    settingsPage.classList.remove('settingpageNone');
-    notePage.classList.add('notesNone');
-    mainPage.classList.add('mainPageNone');
-    contactPage.classList.add('contactPageNone');
-    eventPage.classList.add('eventPageNone');
-}
+
 //CONTACT
 let contactBtn = () => showContactPage();
 
@@ -196,6 +191,7 @@ let saveContactBtn = () => {
 
 
             if (email.value == user[c].eMail && password.value == user[c].passWord) {
+             
                 user[c].contact.push(contactInfo);
                 localStorage.userInfo = JSON.stringify(user)
                 tbd1.innerHTML = `<tr>`
@@ -295,19 +291,19 @@ let loadNoteContent = () => {
 
 
 //SETTINGS
-let settingsBtn = () => showSettingPage();
 
 
-let editProfileBtn = () => {
-    editProfile.classList.remove('editprofileNone')
-}
+
+// let editProfileBtn = () => {
+//     editProfile.classList.remove('editprofileNone')
+// }
 
 let delProfileBtn = () => {
     delProfile.classList.remove('delprofileNone')
 }
-let saveEditProfileBtn = () => {
-    editProfile.classList.add('editprofileNone')
-}
+// let saveEditProfileBtn = () => {
+//     editProfile.classList.add('editprofileNone')
+// }
 let saveDelProfileBtn = () => {
     window.location.href = 'signup.html';
 }
