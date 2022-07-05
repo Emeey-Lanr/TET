@@ -136,6 +136,7 @@ const delProfile = document.querySelector('.delprofile');
 
 
 
+
 //it hides the remaing pages except for the contact page
 const showContactPage = () => {
     contactPage.classList.remove('contactPageNone');
