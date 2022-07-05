@@ -1,14 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <script src="HOF.js"></script>
+    <button onclick="svae()">
+        svae
+    </button>
+    <input type="file" id="valuee">
+    <p id="p"></p>
+    <img src="avatar.jpg" alt="" class="img">
+
+
     <div id="disp"></div>
     <button onclick="showDetails()">Show Details</button>
+
+    <!--<script src="HOF.js"></script>-->
+    <script>
+        let ray = [];
+        let m = { pic: valuee.value };
+        let image = document.querySelector('img');
+        let svae = () => {
+            image.src = `${valuee.value}`
+            p.innerHTML = valuee.value
+            ray.push(m);
+
+            localStorage.Pic = JSON.stringify(ray)
+        }
+
+        let myArray = ["Kunle", "Sola", "Fola", "Kunle"]
+        let myArray2 = [
+            { name: "Kunle", age: 300, school: "SQI" },
+            { name: "Opeyemi", age: 700, school: "LAUTECH" },
+            { name: "Kunle", age: 400, school: "LAUTECH" },
+        ]
+        myArray.map((item, index, arr) => {
+            console.log(arr)
+        })
+        let filteredArray = myArray2.filter((item) => item.name == "tolu")
+        // console.log(filteredArray)
+        //if(filteredArray){
+        //     console.log("Hello")
+        // }else{
+        //     console.log("yola")
+        // }
+        // let foundArray = myArray2.find((item)=>item.name=="Kunle")
+        // console.log(foundArray)
+
+
+
+        const showDetails = () => {
+            myArray2.map((item, index) => {
+                disp.innerHTML += `<div>${index + 1} ${item.name} ${item.age} ${item.school} <button onclick="deleteItem(${index})">Delete</button> <button onclick="editItem(${index})">Edit</button> </div>`
+            })
+        }
+
+        const deleteItem = (index) => {
+            console.log(index)
+            let filteredArray = myArray2.filter((item, ind) => index != ind)
+            myArray2 = filteredArray
+            disp.innerHTML = ""
+            showDetails()
+        }
+        const editItem = (index) => {
+            myArray2[index] = { name: "sade", age: 1000, school: "Emilokan High School" }
+            disp.innerHTML = ""
+            showDetails()
+        }
+
+        let lastArray = [
+            { name: "sola", age: 300, note: [] }
+        ]
+    </script>
+
 </body>
+
 </html>

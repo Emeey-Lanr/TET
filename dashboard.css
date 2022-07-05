@@ -509,11 +509,35 @@ h1 {
     display: none;
 }
 
+.noteTexxtt2 h1 {
+    font-family: sans-serif;
+}
+
 .noteTexxtt2 p {
+    font-family: sans-serif;
     font-size: 1rem;
     color: black;
     font-weight: 400;
     line-height: 2;
+}
+
+.noteTexxtt2 button {
+    border: none;
+    border: 1px solid #23405a;
+    background: none;
+    border-radius: 5px;
+    color: black;
+    margin: 20px 7px;
+    padding: 10px 10px;
+}
+
+.noteTexxtt2 button:hover {
+    transition: 1s all ease-out;
+    transform: translateX(10px);
+    background: linear-gradient(25deg, #23405a, #005cb2cc);
+    border: none;
+    color: white;
+    font-size: bold;
 }
 
 .noteTexxtt2None {

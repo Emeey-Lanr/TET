@@ -48,34 +48,28 @@ let loadEvent = () => {
     for (let lE = 0; lE < user.length; lE++) {
 
         if (email.value == user[lE].eMail && password.value == user[lE].passWord) {
-            for (let e = 0; e < user[lE].event.length; e++) {
-                console.log(user[lE].event[e].eventName)
+            user[lE].event.map((items, contactIndex) => {
                 eventHouseing.innerHTML += `<div class="event" id = "eventhouse">
-                                              <div>
-                                                   <button class="but1">
-                                                     <span class="material-icons">star</span>
-                                                     </button>
-                                               <span class="subName">${user[lE].event[e].eventName}</span>
-                                              </div>
-                                             <div>
-                                               <span class="date">${user[lE].event[e].eventDate}</span>
-                                             </div >
-                                             <div>
-                                                 <button>
-                                                  <span class="material-icons">content_copy</span>
-                                                </button>
-                                              <button style="width: 30px;">
-                                             <span class="material-icons ps-2">edit_pen</span>
-                                              </button>
-                                            <button>
-                                             <span class="material-icons">delete_outline</span>
-                                             </button>
-                                            </div>
-                                   </div >
-                                   </div>`
-
-
-            }
+                <div>
+                     <button class="but1">
+                       <span class="material-icons">star</span>
+                       </button>
+                 <span class="subName">${items.eventName}</span>
+                </div>
+               <div>
+                 <span class="date">${items.eventDate}</span>
+               </div >
+               <div>
+                <button onclick="eventEdit(${contactIndex})" style="width: 30px;">
+               <span class="material-icons ps-2">edit_pen</span>
+                </button>
+              <button onclick="eventDelete(${contactIndex})">
+               <span class="material-icons">delete_outline</span>
+               </button>
+              </div>
+     </div >
+     </div>`
+            })
         }
     }
 
@@ -83,7 +77,7 @@ let loadEvent = () => {
 
 //===================================
 
-
+//DONT USE H1
 let loadNoteTitle = () => {
     let h = false
     user.map((item, index) => {
@@ -92,7 +86,11 @@ let loadNoteTitle = () => {
             user[index].note.map((dex, indd) => {
                 if (h) {
                     user[index].note[indd].noteInfo.map((c, n) => {
-                        console.log(c)
+                        console.log(c.noteTitle)
+                        noteTexxtt2.innerHTML += `<h4>${c.noteTitle}</h4>
+                                                   <p>${c.noteContent}</p>
+                                                   <button onclick="editNote(${n})">Edit Note</button>
+                                                   <button onclick="editDelete(${n})">Delete Note</button> <hr>`
                     })
                 }
 
@@ -100,7 +98,19 @@ let loadNoteTitle = () => {
             })
         }
     })
+    /*for (let lE = 0; lE < user.length; lE++) {
 
+        if (email.value == user[lE].eMail && password.value == user[lE].passWord) {
+            for (let e = 0; e < user[lE].note.length; e++) {
+                user[lE].note[e].noteInfo.map((e) => {
+                    noteTexxtt2.innerHTML += `<h4>${e.noteTitle}<h4>
+                                             <p>${e.noteContent}<p><br>`
+                })
+            }
+
+
+        }
+    }*/
 
 }
 
@@ -409,8 +419,8 @@ let saveEvent = () => {
 let notesBtn = () => {
 
     showNotePage()
-    loadNoteTitle();
-    notetext2.classList.remove('noteTexxtt2None')
+    //loadNoteTitle();
+    notetext2.classList.remove('noteTexxtt2None');
 }
     ;
 
@@ -479,8 +489,56 @@ let loadNoteContent = () => {
         }
     }
 }
+const editDelete = (indexbtn) => {
+    /*
+    let h = false
+
+    user.map((yy, index) => {
+        user[index].note.map((jj, indd) => {
+
+            let newArray = user[index].note[indd].noteInfo.filter((c, n) => index !== n)
+            user[index].note[indd].noteInfo = newArray;
+
+            noteTexxtt2.innerHTML = "";
+         
+            loadNoteTitle()
 
 
+        })
+
+    })*/
+
+    user.map((yy, index) => {
+        let h = false
+        if (yy.eMail == email.value) {
+            h = true;
+            user[index].note.filter((jj, indd) => {
+
+                if (h) {
+
+                    //let newArray = 
+                    user[index].note[indd].noteInfo.filter((c, n) => {
+
+                        if (indexbtn != user[index].note[indd].noteInfo[n]) {
+                            user[index].note[indd].noteInfo.splice(n, 1)
+                            localStorage.userInfo = JSON.stringify(user);
+                            console.log(c.noteTitle)
+                            noteTexxtt2.innerHTML = "";
+
+                            loadNoteTitle()
+                        }
+
+                    })
+                }
+
+            })
+
+
+        }
+    })
+}
+
+let editBtn
 
 //SETTINGS
 let settingsBtn = () => showSettingPage();
