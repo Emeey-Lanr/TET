@@ -91,6 +91,7 @@ let loadNoteTitle = () => {
                                                    <p>${c.noteContent}</p>
                                                    <button onclick="editNote(${n})">Edit Note</button>
                                                    <button onclick="editDelete(${n})">Delete Note</button> <hr>`
+                        tt.innerHTML = `<button onclick="saveEdit(${n})">Save Edit</button>`
                     })
                 }
 
@@ -98,19 +99,7 @@ let loadNoteTitle = () => {
             })
         }
     })
-    /*for (let lE = 0; lE < user.length; lE++) {
 
-        if (email.value == user[lE].eMail && password.value == user[lE].passWord) {
-            for (let e = 0; e < user[lE].note.length; e++) {
-                user[lE].note[e].noteInfo.map((e) => {
-                    noteTexxtt2.innerHTML += `<h4>${e.noteTitle}<h4>
-                                             <p>${e.noteContent}<p><br>`
-                })
-            }
-
-
-        }
-    }*/
 
 }
 
@@ -199,6 +188,7 @@ const note = document.querySelector('.note');
 const noteTitleBoardHouse = document.querySelector('.nottileboardhouse');
 const eventList = document.querySelector('.eventList');
 const notetext2 = document.querySelector('.noteTexxtt2')
+const editSave = document.querySelector('.tt')
 
 noteTitleBoardHouse.classList.remove('nottileboardhouseNon');
 
@@ -429,9 +419,11 @@ const showNote = () => {
     note.classList.remove('noteNone');
 }
 
-const hideNote = () => {
+const hideNote = (rr) => {
     noteTitle.classList.add('noteTitleNone');
     note.classList.add('noteNone');
+    noteTitle.textContent = rr;
+    note.textContent = rr
 }
 let writenote = () => {
     noteTitleBoardHouse.classList.add('nottileboardhouseNon')
@@ -489,26 +481,13 @@ let loadNoteContent = () => {
         }
     }
 }
-const editDelete = (indexbtn) => {
-    /*
-    let h = false
 
-    user.map((yy, index) => {
-        user[index].note.map((jj, indd) => {
-
-            let newArray = user[index].note[indd].noteInfo.filter((c, n) => index !== n)
-            user[index].note[indd].noteInfo = newArray;
-
-            noteTexxtt2.innerHTML = "";
-         
-            loadNoteTitle()
-
-
-        })
-
-    })*/
-
-    user.map((yy, index) => {
+//It loads up the note for you for editing
+const editNote = (editIndex) => {
+    showNote();
+    editSave.classList.remove('ttnone');
+    notetext2.classList.add('noteTexxtt2None');
+    user.filter((yy, index) => {
         let h = false
         if (yy.eMail == email.value) {
             h = true;
@@ -517,18 +496,14 @@ const editDelete = (indexbtn) => {
                 if (h) {
 
                     //let newArray = 
-                    user[index].note[indd].noteInfo.filter((c, n) => {
-
-                        if (indexbtn != user[index].note[indd].noteInfo[n]) {
-                            user[index].note[indd].noteInfo.splice(n, 1)
-                            localStorage.userInfo = JSON.stringify(user);
-                            console.log(c.noteTitle)
-                            noteTexxtt2.innerHTML = "";
-
-                            loadNoteTitle()
+                    user[index].note[indd].noteInfo.filter((c, n) => editIndex != n);
+                    for (let k = 0; k < user[index].note[indd].noteInfo.length; k++) {
+                        if (editIndex == k) {
+                            noteTitleName.value = user[index].note[indd].noteInfo[k].noteTitle;
+                            notePad.value = user[index].note[indd].noteInfo[k].noteContent
                         }
+                    }
 
-                    })
                 }
 
             })
@@ -536,6 +511,76 @@ const editDelete = (indexbtn) => {
 
         }
     })
+
+
+}
+
+//It saves the edited noted for u;
+const saveEdit = (saveEditIndex) => {
+    var ray = { noteTitle: noteTitleName.value, noteContent: notePad.value }
+    user.filter((kk, userindex) => {
+        let h = false
+        if (kk.eMail == email.value) {
+            h = true;
+            user[userindex].note.filter((jj, lk) => {
+                if (h) {
+
+                    user[userindex].note[lk].noteInfo[saveEditIndex] = { noteTitle: noteTitleName.value, noteContent: notePad.value };
+                    noteTexxtt2.innerHTML = "";
+                    loadNoteTitle()
+                    notetext2.classList.remove('noteTexxtt2None');
+                    for (let z = 0; z < user[userindex].note[lk].noteInfo.length; z++) {
+                        if (saveEditIndex == z) {
+                            user[userindex].note[lk].noteInfo.splice(z, 1);
+                            user[userindex].note[lk].noteInfo.push(ray)
+                            localStorage.userInfo = JSON.stringify(user);
+
+                        }
+                    }
+                }
+            })
+        }
+    })
+    editSave.classList.remove('ttnone')
+    hideNote()
+}
+
+
+//DELETE NOTE
+const editDelete = (indexbtn) => {
+    user.filter((yy, index) => {
+        let h = false
+        if (yy.eMail == email.value) {
+            h = true;
+            user[index].note.filter((jj, indd) => {
+
+                if (h) {
+
+                    //let newArray = 
+                    let ray = user[index].note[indd].noteInfo.filter((c, n) => indexbtn != n);
+                    user[index].note[indd].noteInfo = ray
+                    noteTexxtt2.innerHTML = "";
+                    loadNoteTitle()
+                    for (let k = 0; k < user[index].note[indd].noteInfo.length; k++) {
+                        if (indexbtn == k) {
+                            user[index].note[indd].noteInfo.splice(k, 1)
+                            localStorage.userInfo = JSON.stringify(user);
+
+                            //console.log(c.noteTitle)
+
+                        }
+                    }
+
+                }
+
+            })
+
+
+        }
+    })
+
+
+
 }
 
 let editBtn

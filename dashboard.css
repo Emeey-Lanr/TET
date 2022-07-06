@@ -544,6 +544,25 @@ h1 {
     display: none;
 }
 
+.tt button {
+    border: 1px solid #001529;
+    background: #123a60;
+    background: none;
+    border-radius: 5px;
+    color: black;
+    margin: 20px 7px;
+    padding: 10px 10px;
+}
+
+#tt {
+    position: absolute;
+    bottom: -2%;
+}
+
+.ttnone {
+    display: none;
+}
+
 /*=====EDITING PROFILE======*/
 
 .editingprofile {
