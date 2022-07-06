@@ -43,8 +43,8 @@ let saveContact = () => {
     }
 }
 //====EVENT======
-let loadEvent = () => {
-    alert(50)
+let loadEventPage = () => {
+    alert(50);
     for (let lE = 0; lE < user.length; lE++) {
 
         if (email.value == user[lE].eMail && password.value == user[lE].passWord) {
@@ -68,8 +68,8 @@ let loadEvent = () => {
                </button>
               </div>
      </div >
-     </div>`
-            })
+     </div>`;
+            });
         }
     }
 
@@ -163,7 +163,7 @@ let signin = () => {
     saveContact();
     loadNoteTitle();
     eventEmail.innerHTML = email.value;
-    loadEvent();
+    loadEventPage();
 
 
 }
@@ -405,6 +405,13 @@ let saveEvent = () => {
     }
 
 }
+
+
+let eventDelete = (eventDeleteIndex) => {
+    let h = false;
+    console.log(30)
+
+}
 //NOTE
 let notesBtn = () => {
 
@@ -443,7 +450,6 @@ let saveNoteBtn = () => {
             if (noteTitleName.value == '' && notePad.value == '') {
                 alert('nothing to save')
             } else {
-
                 user[Index].note[0].noteInfo.push(noteMemory);
                 localStorage.userInfo = JSON.stringify(user);
                 noteTitleBoardHouse.classList.remove('nottileboardhouseNon');
