@@ -155,12 +155,6 @@
                             <p class="iconMessage hideIconMessage">Contact</p>
                         </div>
                         <div class="d-flex iconm  align-items-center">
-                            <button onclick="toDoListBtn()">
-                                <span class="material-icons">assignment</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">To do list</p>
-                        </div>
-                        <div class="d-flex iconm  align-items-center">
                             <button onclick="eventBtn()">
                                 <span class="material-icons">star</span>
                             </button>
@@ -216,12 +210,15 @@
                         </tr>
                         <tbody id="tbd">
 
-                        </tbody>-->
+                        </tbody>
                         <tbody id="tbd1">
 
                         </tbody>
 
                     </table>
+                    <div class="h" id="hh">
+
+                    </div>
 
                     <div class="add">
                         <button onclick="addContactBtn()">
@@ -247,13 +244,13 @@
 
                     </span>
                     <span id="newContext" class="newContext"></span>
-                    <span class="newconsave">
+                    <span class="newconsave" id="newconsave">
                         <button onclick="saveContactBtn()" class="saveContactBtn saveContactBtnNone">
                             SAVE
                         </button>
-                        <button onclick="editContactBtn()" class="editContactBtn editContactBtnNone">
-                            Edit
-                        </button>
+                    </span>
+                    <span class="" id="newcon">
+
                     </span>
                 </div>
                 <div class="d-flex justify-content-center"><img src="avatar.jpg" alt="" style="width: 50px;"></div>
@@ -362,7 +359,10 @@
 
 
                     </div>
-                    <div id="loadEventMaker">
+                    <!--<div id="loadEventMaker">
+
+                    </div>-->
+                    <div id="loadEvent">
 
                     </div>
 
@@ -512,6 +512,7 @@
                         <label for="">Title</label>
                         <input type="text" id="noteTitleName">
                     </div>
+
                     <div class="note noteNone">
                         <textarea class="note" id="notePad"></textarea>
                         <div class="notebtn d-flex justify-content-end">
@@ -667,11 +668,7 @@
 
         </div>
     </div>
-    <div id="l">
-
-    </div>
-
-
+    <audio src="salie_prod_by_EmeeyLanr.wav" loop id="nn"></audio>
     <script src="dashboard.js"></script>
     <script src="edit.js"></script>
     <script src="delete.js"></script>

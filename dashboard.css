@@ -313,6 +313,23 @@ h1 {
     display: none;
 }
 
+.jj {
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+
+
+}
+.h> .tbtable{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* .jjnone {
+    display: none;
+} */
+
 .newContact {
     width: 26%;
     background-color: #fafafa;
