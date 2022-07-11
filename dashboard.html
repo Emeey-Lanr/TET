@@ -91,12 +91,6 @@
                             <p class="iconMessage hideIconMessage">Contact</p>
                         </div>
                         <div class="d-flex iconm  align-items-center">
-                            <button onclick="toDoListBtn()">
-                                <span class="material-icons">assignment</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">To do list</p>
-                        </div>
-                        <div class="d-flex iconm  align-items-center">
                             <button onclick="eventBtn()">
                                 <span class="material-icons">star</span>
                             </button>
@@ -129,7 +123,7 @@
                 <div class="contents contentMainPage">
                     <header>
                         <div>
-                            <h1>Welcome <span id="name">!</span></h1>
+                            <h1>Welcome <span id="nameUser"></span></h1>
                         </div>
                         <div>
 
@@ -209,7 +203,7 @@
                 <div class="contents">
                     <header>
                         <div>
-                            <h1>Welcome <span id="name">!</span></h1>
+                            <h1>Welcome <span id="nameUserCon"></span></h1>
                         </div>
                         <div>
 
@@ -236,13 +230,20 @@
                         </tbody>
 
                     </table>
+                    <div id="previewCon" class="d-flex justify-content-center align-items-center">
+                        <p class="text-center" style="font-weight: bold; font-size: 4rem; opacity: 10%;">
+                            NO CONTACT AVAILLABLE,<br>
+                            CREATE NEW CONTACT.
+                        </p>
+                    </div>
+
                     <div class="h" id="hh">
 
                     </div>
 
                     <div class="add">
                         <button onclick="addContactBtn()">
-                            <span class="material-icons">
+                            <span class="material-icons" style="font-size: 3rem;">
                                 playlist_add_circle
                             </span>
                         </button>
@@ -305,7 +306,6 @@
         </div>
     </main>
 
-    <!--TO DO LIST-->
     <!--EVENT-->
     <main class="eventPage eventPageNone m">
         <div class="brand  d-flex justify-content-center">
@@ -367,14 +367,11 @@
                         </div>
                     </div>
 
-
-
-
                 </div>
-                <div class="contents">
+                <div class="contents w-100">
                     <header>
                         <div>
-                            <h1>Welcome <span id="name">!</span></h1>
+                            <h1>Welcome <span id="nameUserEvent"></span></h1>
                         </div>
                         <div>
 
@@ -383,18 +380,22 @@
                     </header>
                     <div class="contact">EVENTS</div>
 
-                    <div class="" id="eventHouseing" style="position: relative; top: -60px;">
+                    <div id="eventHouseing" style="position: relative; top: -60px; width: 100%;">
 
 
                     </div>
                     <!--<div id="loadEventMaker">
 
                     </div>-->
-                    <div id="loadEvent" style="position: relative; top: -60px;">
+                    <div id="loadEvent" class="w-100" style="position: relative; top: -60px; width: 100%;">
 
                     </div>
-
-
+                    <div id="previewEvent" class="d-flex justify-content-center align-items-center">
+                        <p class="text-center" style="font-weight: bold; font-size: 4rem; opacity: 10%;">
+                            NO EVENT AVAILLABLE,<br>
+                            CREATE NEW EVENT.
+                        </p>
+                    </div>
 
                     <div class="addEvent">
                         <button onclick="addEvent()">
@@ -514,7 +515,7 @@
                 <div class="contents" style="position: relative;">
                     <header>
                         <div>
-                            <h1>Welcome <span id="name">!</span></h1>
+                            <h1>Welcome <span id="nameUserNote"></span></h1>
                         </div>
                         <div>
 
@@ -535,6 +536,12 @@
 
                     </div>
                     <div id="tt" class="tt ttnone"> </div>
+                    <div id="previewNote d-flex justify-content-center align-items-center">
+                        <p class="text-center" style="font-weight: bold; font-size: 4rem; opacity: 10%;">
+                            NO NOTE AVAILLABLE,<br>
+                            CREATE NEW NOTE.
+                        </p>
+                    </div>
 
                     <div class="add">
                         <button onclick="writenote()">
@@ -643,7 +650,7 @@
                     </header>
 
                     <div class="contact">SETTING</div>
-                    <div class="editingprofile ">
+                    <div class="editingprofile" style="position: relative;top: -60px;">
                         <div class="d-flex align-items-center ps-2">
                             <button onclick="editProfileBtn()">
                                 <span class="material-icons">edit</span>

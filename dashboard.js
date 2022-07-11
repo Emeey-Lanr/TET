@@ -134,6 +134,7 @@ let signin = () => {
         for (let i = 0; i < user.length; i++) {
             if (/*eMl*/email.value == user[i].eMail && /*pWord*/ password.value == user[i].passWord) {
                 check = true;
+                nameUser.innerHTML = user[i].firstName
                 First_Name(user[i].firstName);
                 Last_Name(`@${user[i].lastName}`);
                 // setting email and password back to empty after signin in 
@@ -237,6 +238,12 @@ let contactBtn = () => {
     // saveContact();
     showContactPage();
     var edit = document.querySelectorAll('.editbtn');
+    user.map((ui, ud) => {
+        if (ui.eMail == email.value) {
+            nameUserCon.innerHTML = `${ui.firstName}!`;
+
+        }
+    })
 
 
 }
@@ -324,7 +331,7 @@ let saveContactBtn = () => {
     } else {
         conValidation.innerHTML = '';
         createNewContact.classList.add('createNewContactNone');
-
+        previewCon.innerHTML = "";
         user.filter((ui, ud) => {
             if (email.value == ui.eMail) {
                 ui.contact.push(contactInfo);
@@ -334,6 +341,7 @@ let saveContactBtn = () => {
 
         })
     }
+
     tbd1.innerHTML += `<tr>`
     user.filter((uii, udd) => {
         if (email.value == uii.eMail) {
@@ -453,6 +461,11 @@ let contactBackBtn = () => {
 //EVENT
 let eventBtn = () => {
     showEventPage()
+    user.map((ui, ud) => {
+        if (ui.eMail == email.value) {
+            nameUserEvent.innerHTML = `${ui.firstName}!`
+        }
+    })
 
 
 }
@@ -477,6 +490,7 @@ let saveEvent = () => {
             if (eventTitleInput.value == "") {
                 alert('looks that you forgot something');
             } else {
+                previewEvent.innerHTML = "";
                 i.event.push(storeEvent)
                 localStorage.userInfo = JSON.stringify(user)
 
@@ -588,6 +602,11 @@ let notesBtn = () => {
 
     showNotePage()
     notetext2.classList.remove('noteTexxtt2None');
+    user.map((ui, ud) => {
+        if (ui.eMail == email.value) {
+            nameUserNote.innerHTML = `${ui.firstName}!`
+        }
+    })
 }
 
 
@@ -595,6 +614,7 @@ let notesBtn = () => {
 const showNote = () => {
     noteTitle.classList.remove('noteTitleNone');
     note.classList.remove('noteNone');
+
 
 }
 
@@ -620,6 +640,7 @@ let saveNoteBtn = () => {
                     if (noteTitleName.value == "" || notePad.value == "") {
                         console.log('undefined')
                     } else {
+                        previewNote.innerHTML = "";
                         user[uindex].note[ud].noteInfo.push(noteDocument)
                         localStorage.userInfo = JSON.stringify(user)
                     }
