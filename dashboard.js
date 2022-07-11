@@ -189,6 +189,7 @@ const delProfile = document.querySelector('.delprofile');
 
 
 
+
 //it hides the remaing pages except for the contact page
 const showContactPage = () => {
     contactPage.classList.remove('contactPageNone');
@@ -214,13 +215,7 @@ const showNotePage = () => {
     settingsPage.classList.add('settingpageNone');
 }
 ////it hides the remaing pages except for the Setting page
-const showSettingPage = () => {
-    settingsPage.classList.remove('settingpageNone');
-    notePage.classList.add('notesNone');
-    mainPage.classList.add('mainPageNone');
-    contactPage.classList.add('contactPageNone');
-    eventPage.classList.add('eventPageNone');
-}
+
 //CONTACT
 
 let contactBtn = () => {
@@ -585,11 +580,7 @@ let notesBtn = () => {
 
     showNotePage()
     notetext2.classList.remove('noteTexxtt2None');
-    user.map((ui, ud) => {
-        if (ui.eMail == email.value) {
-            nameUserNote.innerHTML = `${ui.firstName}!`
-        }
-    })
+
 }
 
 
@@ -652,11 +643,11 @@ let saveNoteBtn = () => {
 }
 
 let writenote = () => {
+    previewNote.innerHTML = "";
     noteTitleBoardHouse.classList.add('nottileboardhouseNon')
     notetext2.classList.add('noteTexxtt2None');
     noteTexxtt2.innerHTML = ""
     showNote();
-
 }
 
 let goback = () => {
@@ -842,22 +833,28 @@ const editDelete = (indexbtn) => {
 
 
 //SETTINGS
-let settingsBtn = () => showSettingPage();
-
-
-let editProfileBtn = () => {
-    editProfile.classList.remove('editprofileNone')
+const settingsBtn = () => {
+    settingsPage.classList.remove('settingpageNone');
+    notePage.classList.add('notesNone');
+    mainPage.classList.add('mainPageNone');
+    contactPage.classList.add('contactPageNone');
+    eventPage.classList.add('eventPageNone');
 }
 
-let delProfileBtn = () => {
-    delProfile.classList.remove('delprofileNone')
-}
-let saveEditProfileBtn = () => {
-    editProfile.classList.add('editprofileNone')
-}
-let saveDelProfileBtn = () => {
-    window.location.href = 'signup.html';
-}
+
+// let editProfileBtn = () => {
+//     editProfile.classList.remove('editprofileNone')
+// }
+
+// let delProfileBtn = () => {
+//     delProfile.classList.remove('delprofileNone')
+// }
+// let saveEditProfileBtn = () => {
+//     editProfile.classList.add('editprofileNone')
+// }
+// let saveDelProfileBtn = () => {
+//     window.location.href = 'signup.html';
+// }
 
 
 

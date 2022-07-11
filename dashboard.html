@@ -536,7 +536,7 @@
 
                     </div>
                     <div id="tt" class="tt ttnone"> </div>
-                    <div id="previewNote d-flex justify-content-center align-items-center">
+                    <div id="previewNote">
                         <p class="text-center" style="font-weight: bold; font-size: 4rem; opacity: 10%;">
                             NO NOTE AVAILLABLE,<br>
                             CREATE NEW NOTE.
@@ -636,7 +636,6 @@
                             <p class="iconMessage hideIconMessage">settings</p>
                         </div>
                     </div>
-
                 </div>
                 <div class="contents">
                     <header>
@@ -678,15 +677,15 @@
                 <div class="d-flex justify-content-center w-100">
                     <div class="w-75">
                         <label for="" class="form-label">First Name</label>
-                        <input type="text">
+                        <input id="ftName" type="text">
                         <label for="" class="form-label">Last Name</label>
-                        <input type="text">
+                        <input id="ltName" type="text">
                         <label for="" class="form-label">Email</label>
-                        <input type="email">
+                        <input id="eMl" type="email">
                         <label for="" class="form-label">Password</label>
-                        <input type="password">
+                        <input id="pWord" type="text">
                         <div class="d-flex justify-content-center">
-                            <button onclick="saveEditProfileBtn()">save</button>
+                            <button onclick="saveEditProfileBtn()">Save</button>
                         </div>
                     </div>
 
@@ -708,9 +707,9 @@
                 <div class="d-flex justify-content-center w-100">
                     <div class="w-75">
                         <label for="" class="form-label">Email</label>
-                        <input type="email">
+                        <input id="emAil" type="email">
                         <label for="" class="form-label">Password</label>
-                        <input type="password">
+                        <input id="pword" type="password">
                         <div class="d-flex justify-content-center">
                             <button onclick="saveDelProfileBtn()">Deactivate</button>
                         </div>
@@ -727,7 +726,6 @@
 
         </div>
     </div>
-    <audio src="salie_prod_by_EmeeyLanr.wav" loop id="nn"></audio>
     <script src="dashboard.js"></script>
     <script src="edit.js"></script>
     <script src="delete.js"></script>
