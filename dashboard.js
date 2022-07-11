@@ -36,11 +36,7 @@ let saveContact = () => {
             })
 
             tbd.innerHTML += `</tr > `
-            console.log(user[ct])
         }
-
-        console.log(tbd.innerHTML)
-
     }
 }
 
@@ -79,10 +75,7 @@ let loadEventPage = () => {
 
 }
 
-
 //===================================
-
-//DONT USE H1
 let loadNoteTitle = () => {
     let h = false
     user.map((item, index) => {
@@ -137,15 +130,11 @@ let signin = () => {
                 nameUser.innerHTML = user[i].firstName
                 First_Name(user[i].firstName);
                 Last_Name(`@${user[i].lastName}`);
-                // setting email and password back to empty after signin in 
-                //email.value = '';
-                //password.value = '';
                 break
             }
         }
 
         if (check == true) {
-            // window.location.href = "dashboard.html"
             signPage.classList.add('signInNone');
             mainPage.classList.remove('mainPageNone');
 
@@ -315,8 +304,6 @@ let addContactBtn = () => {
 //it saves the contact when the input are filled up and it gets displayed in the table;
 
 let saveContactBtn = () => {
-    //bbbtn.innerHTML = `<button>Delete<button>`
-
     var contactInfo = {
         contactFirstName: contactFirstName.value,
         contactLastName: contactLastName.value,
@@ -405,9 +392,6 @@ let delContact = (delIndex) => {
     }
 
 }
-
-
-
 
 let contactBackBtn = () => {
     conValidation.innerHTML = '';
@@ -572,7 +556,6 @@ let eventDeleteBtnn = (eventDeleteBtnIndex) => {
 
 //it deletes the saved event made on the onload of the page
 let eventDelete = (eventDeleteIndex) => {
-    // console.log(eventDeleteIndex)
     let h = false;
     user.filter((ui, ud) => {
         if (ui.eMail == email.value) {
