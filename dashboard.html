@@ -13,11 +13,11 @@
 
 <body onload="getUserInfo()">
     <!--========SIGN UP==============-->
+
     <div class="signIn signInNone">
         <div class="back">
             <main class="form-signin w-100 m-auto">
                 <form>
-                    <!--<img class="mb-4" src="tetnotes.jpg" alt="" width="300px">-->
                     <h1 class="h1">TET Notes</h1>
                     <span class="h3 text-center fs-10 text-light mb-3 fw-normal">Please sign in</span>
 
@@ -35,6 +35,7 @@
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
+                    <p id="validation"></p>
                     <button style="color: aliceblue;" class="w-100 btn btn-lg" onclick="signin()" type="button">Sign
                         in</button>
 
@@ -43,7 +44,7 @@
         </div>
     </div>
     <!--=============================================-->
-    <!-- <div class="head head_None d-flex justify-content-center align-items-center">
+    <!--<div class="head head_None d-flex justify-content-center align-items-center">
         <div class="head-input d-flex align-items-center">
             <input type="checkbox">
             <button>
@@ -56,8 +57,17 @@
     </div>-->
 
 
-    <main class="mainPage mainPageNone">
-
+    <main class="mainPage mainPageNone m">
+        <div class="brand  d-flex justify-content-center">
+            <div>
+                <span class="ball"></span><span class="title">T</span>
+            </div>
+        </div>
+        <div class="brand-info  ms-auto">
+            <div class="dashboard">
+                <p class="text-center">DASHBOARD</p>
+            </div>
+        </div>
         <div class="content d-flex justify-content-center align-items-center">
             <section>
                 <div class=" icon">
@@ -68,6 +78,9 @@
                         <div>
                             <span id="firName1" class="name"></span><br>
                             <span id="lstName1" class="username"></span>
+                        </div>
+                        <div class="py-3 indication  w-100">
+                            <p>Dashboard</p>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -116,7 +129,7 @@
                 <div class="contents contentMainPage">
                     <header>
                         <div>
-                            <h1>tet notes</h1>
+                            <h1>Welcome <span id="name">!</span></h1>
                         </div>
                         <div>
 
@@ -133,8 +146,17 @@
 
     <!--============================================================================================-->
     <!--CONTACT-->
-    <main class="contactPage contactPageNone">
-
+    <main class="contactPage contactPageNone m">
+        <div class="brand  d-flex justify-content-center">
+            <div>
+                <span class="ball"></span><span class="title">T</span>
+            </div>
+        </div>
+        <div class="brand-info  ms-auto">
+            <div class="dashboard">
+                <p class="text-center">DASHBOARD</p>
+            </div>
+        </div>
         <div class="content d-flex justify-content-center align-items-center">
             <section>
                 <div class=" icon">
@@ -145,6 +167,9 @@
                         <div>
                             <span id="firName2" class="name"></span><br>
                             <span id="lstName2" class="username"></span>
+                        </div>
+                        <div class="py-3 indication  w-100">
+                            <p>Dashboard</p>
                         </div>
                     </div>
                     <div class="iconlogo">
@@ -180,25 +205,20 @@
                         </div>
                     </div>
 
-
-
-
                 </div>
                 <div class="contents">
                     <header>
                         <div>
-                            <h1>tet notes</h1>
+                            <h1>Welcome <span id="name">!</span></h1>
                         </div>
                         <div>
 
                         </div>
 
                     </header>
-
-
                     <div class="contact">CONTACT</div>
 
-                    <table class="table" id="table">
+                    <table class="table" id="table" style="position: absolute; top: 60px;">
 
                         <tr>
                             <th>First Name</th>
@@ -232,7 +252,7 @@
 
             </section>
         </div>
-        <div class="createNewContact createNewContactNone">
+        <div class="createNewContact createNewContactNone ">
 
             <div class="newContact">
 
@@ -249,9 +269,9 @@
                             SAVE
                         </button>
                     </span>
-                    <span class="" id="newcon">
+                    <!--<span class="" id="newcon">
 
-                    </span>
+                    </span>-->
                 </div>
                 <div class="d-flex justify-content-center"><img src="avatar.jpg" alt="" style="width: 50px;"></div>
                 <div>
@@ -277,6 +297,7 @@
                         </span>
                         <input type="text" placeholder="Email" id="contactEmail">
                     </div>
+                    <p id="conValidation" class="text-center text-danger"></p>
                     <div></div>
                 </div>
             </div>
@@ -286,7 +307,17 @@
 
     <!--TO DO LIST-->
     <!--EVENT-->
-    <main class="eventPage eventPageNone">
+    <main class="eventPage eventPageNone m">
+        <div class="brand  d-flex justify-content-center">
+            <div>
+                <span class="ball"></span><span class="title">T</span>
+            </div>
+        </div>
+        <div class="brand-info  ms-auto">
+            <div class="dashboard">
+                <p class="text-center">DASHBOARD</p>
+            </div>
+        </div>
 
         <div class="content d-flex justify-content-center align-items-center">
             <section>
@@ -299,6 +330,9 @@
                             <span id="firName3" class="name">Oyelowo</span><br>
                             <span id="lstName3" class="username">@EmeeyLanr</span>
                         </div>
+                        <div class="py-3 indication  w-100">
+                            <p>Dashboard</p>
+                        </div>
                     </div>
                     <div class="iconlogo">
                         <div class="d-flex iconm  align-items-center">
@@ -306,12 +340,6 @@
                                 <span class="material-icons">contacts</span>
                             </button>
                             <p class="iconMessage hideIconMessage">Contact</p>
-                        </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="toDoListBtn()">
-                                <span class="material-icons">assignment</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">To do list</p>
                         </div>
                         <div class="d-flex iconm  align-items-center">
                             <button onclick="eventBtn()">
@@ -346,7 +374,7 @@
                 <div class="contents">
                     <header>
                         <div>
-                            <h1>tet notes</h1>
+                            <h1>Welcome <span id="name">!</span></h1>
                         </div>
                         <div>
 
@@ -355,14 +383,14 @@
                     </header>
                     <div class="contact">EVENTS</div>
 
-                    <div class="" id="eventHouseing">
+                    <div class="" id="eventHouseing" style="position: relative; top: -60px;">
 
 
                     </div>
                     <!--<div id="loadEventMaker">
 
                     </div>-->
-                    <div id="loadEvent">
+                    <div id="loadEvent" style="position: relative; top: -60px;">
 
                     </div>
 
@@ -423,7 +451,17 @@
 
     <!--====================================================================-->
     <!--NOTES-->
-    <main class="Notes notesNone">
+    <main class="Notes notesNone m">
+        <div class="brand  d-flex justify-content-center">
+            <div>
+                <span class="ball"></span><span class="title">T</span>
+            </div>
+        </div>
+        <div class="brand-info  ms-auto">
+            <div class="dashboard">
+                <p class="text-center">DASHBOARD</p>
+            </div>
+        </div>
         <div class="content d-flex justify-content-center align-items-center">
             <section>
                 <div class=" icon">
@@ -435,6 +473,9 @@
                             <span id="firName4" class="name">Oyelowo</span><br>
                             <span id="lstName4" class="username">@EmeeyLanr</span>
                         </div>
+                        <div class="py-3 indication  w-100">
+                            <p>Dashboard</p>
+                        </div>
                     </div>
                     <div class="iconlogo">
                         <div class="d-flex iconm  align-items-center">
@@ -442,12 +483,6 @@
                                 <span class="material-icons">contacts</span>
                             </button>
                             <p class="iconMessage hideIconMessage">Contact</p>
-                        </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="toDoListBtn()">
-                                <span class="material-icons">assignment</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">To do list</p>
                         </div>
                         <div class="d-flex iconm  align-items-center">
                             <button onclick="eventBtn()">
@@ -476,10 +511,10 @@
                     </div>
 
                 </div>
-                <div class="contents">
+                <div class="contents" style="position: relative;">
                     <header>
                         <div>
-                            <h1>tet notes</h1>
+                            <h1>Welcome <span id="name">!</span></h1>
                         </div>
                         <div>
 
@@ -508,12 +543,16 @@
                             </span>
                         </button>
                     </div>
-                    <div class="notetitle noteTitleNone">
+                    <div class="notetitle noteTitleNone" style="position: relative; top: -90px;">
+                        <div>
+                            <button class="goback py-1" onclick="goback()"
+                                style="font-size: 2rem; font-weight: bold; border: none; background: none;">&leftarrow;</button>
+                        </div>
                         <label for="">Title</label>
                         <input type="text" id="noteTitleName">
                     </div>
 
-                    <div class="note noteNone">
+                    <div class="note noteNone" style="position: relative; top: -60px;">
                         <textarea class="note" id="notePad"></textarea>
                         <div class="notebtn d-flex justify-content-end">
                             <button onclick="saveNoteBtn()">Save</button>
@@ -525,7 +564,17 @@
     <!--=================================================================-->
     <!--DOCUMENT-->
     <!--SETTING-->
-    <main class="settingpage settingpageNone">
+    <main class="settingpage settingpageNone m">
+        <div class="brand  d-flex justify-content-center">
+            <div>
+                <span class="ball"></span><span class="title">T</span>
+            </div>
+        </div>
+        <div class="brand-info  ms-auto">
+            <div class="dashboard">
+                <p class="text-center">DASHBOARD</p>
+            </div>
+        </div>
 
         <div class="content d-flex justify-content-center align-items-center">
             <section>
@@ -537,6 +586,9 @@
                         <div>
                             <span id="firName5" class="name">Oyelowo</span><br>
                             <span id="lstName5" class="username">@EmeeyLanr</span>
+                        </div>
+                        <div class="py-3 indication  w-100">
+                            <p>Dashboard</p>
                         </div>
                     </div>
                     <div class="iconlogo">

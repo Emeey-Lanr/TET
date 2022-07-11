@@ -31,9 +31,8 @@ let saveContact = () => {
                    <td>${user[ct].contact[cd].contactPhoneNumber}</td>
                       <td>${user[ct].contact[cd].contactEmailAd}</td>
                        <td><button class= "editbtn" onclick="editContact(${cd})"> <span class="material-icons">edit_pen</span></button></td>
-                       <td><button onclick="deleteContactBtn(${cd})"><span class="material-icons">delete_outline</span></button>
-                       <td><button id="jj" class="jj jjnone" onclick="saveditBtn(${cd})">Save</button></td>`
-                newcon.innerHTML = ` <button class="bbb bbt" onclick="editContactBtn(${cd})">Edit</button>`
+                       <td><button onclick="deleteContactBtn(${cd})"><span class="material-icons">delete_outline</span></button>`
+
             })
 
             tbd.innerHTML += `</tr > `
@@ -110,14 +109,6 @@ let loadNoteTitle = () => {
 }
 
 
-
-
-
-
-
-
-
-
 let First_Name = (first_Name,) => {
     firName1.innerHTML = first_Name;
     firName2.innerHTML = first_Name;
@@ -159,11 +150,14 @@ let signin = () => {
 
         }
         else {
-            alert('Invalid Email or Password')
+            validation.innerHTML = 'Invalid Email or Password';
+            document.getElementById('validation').style.color = '#dc3545'
         }
     }
     else {
-        alert('Complete the above information')
+        // alert('Complete the above information')
+        validation.innerHTML = 'Complete the above information';
+        document.getElementById('validation').style.color = '#dc3545'
     }
 
     saveContact();
@@ -254,6 +248,7 @@ let editContact = (indexbtn) => {
     let showSaveEditBtn = document.querySelector('.editContactBtnEDit')
     createNewContact.classList.remove('createNewContactNone');
     newContext.innerHTML = `Edit your contact`;
+    saveNewContactBtn.classList.remove('saveContactBtnNone')
     user.filter((it, id) => {
         if (it.eMail == email.value) {
             for (let t = 0; t < user[id].contact.length; t++) {
@@ -262,15 +257,16 @@ let editContact = (indexbtn) => {
                     contactLastName.value = user[id].contact[t].contactLastName;
                     contactPhone.value = user[id].contact[t].contactPhoneNumber;
                     contactEmail.value = user[id].contact[t].contactEmailAd;
+                    if (indexbtn == t) {
+                        user[id].contact.splice(t, 1);
+                        localStorage.userInfo = JSON.stringify(user);
+                    }
                 }
             }
 
-            // let x = user[id].contact.filter((ct, cd) => indexbtn != cd);
-            // user[id].contact = x;
-            // tbd.innerHTML = "";
-            // saveContact()
         }
     })
+    tbd.innerHTML = ""
 }
 
 
@@ -278,17 +274,8 @@ let editContact = (indexbtn) => {
 let saveditBtn = (saveEditIndexBtn) => {
     console.log(saveEditIndexBtn);
 }
-//The button that that performs the editing;
-let editContactBtn = () => {
-    createNewContact.classList.add('createNewContactNone');
-    tbd1.innerHTML += `<td>${contactFirstName.value}</td>
-    <td>${contactLastName.value}</td>
-     <td>${contactPhone.value}</td>
-     <td>${contactEmail.value}</td>
-     <td><button><span class="material-icons">edit_pen</span></button></td>                                  
-     <td><button><span class="material-icons">delete_outline</span></button></td>`
 
-}
+
 
 //DELETE CONTACT
 let deleteContactBtn = (delindexbtn) => {
@@ -333,8 +320,9 @@ let saveContactBtn = () => {
     }
     let h = false;
     if (contactFirstName.value == '' || contactPhone.value == '') {
-        console.log('enter you name')
+        conValidation.innerHTML = 'Looks like you forgot something'
     } else {
+        conValidation.innerHTML = '';
         createNewContact.classList.add('createNewContactNone');
 
         user.filter((ui, ud) => {
@@ -368,6 +356,7 @@ let saveContactBtn = () => {
     contactEmail.value = ''
     console.log(tbd1.innerHTML)
 }
+//it edits  when doing it for the first time
 let editContact1 = (editIndex) => {
     createNewContact.classList.remove('createNewContactNone');
     user.filter((ui, ud) => {
@@ -378,35 +367,83 @@ let editContact1 = (editIndex) => {
                     contactLastName.value = user[ud].contact[i].contactLastName;
                     contactPhone.value = user[ud].contact[i].contactPhoneNumber;
                     contactEmail.value = user[ud].contact[i].contactEmailAd;
+                    if (editIndex == i) {
+                        user[ud].contact.splice(i, 1)
+                        localStorage.userInfo = JSON.stringify(user)
+                    }
                 }
-                // let x = user[ud].contact.filter((ct, cd) => editIndex != cd);
-                // user[ud].contact = x;
-                // tbd.innerHTML = "";
-                // saveContactBtn()
+
             }
         }
 
     })
+    tbd1.innerHTML = "";
 
 }
+
+//it delete when doing for the first time
 let delContact = (delIndex) => {
-    user.filter((ui, ud) => {
-        if (ui.eMail == email.value) {
-            let x = user[ud].contact.filter((ci, cd) => delIndex != cd);
-            user[ud].contact = x;
-            tbd1.innerHTML = "";
-            localStorage.userInfo = JSON.stringify(user)
-            saveContactBtn()
-        }
-    })
+    if (confirm('Are you sure you want to delete ?')) {
+        user.filter((ui, ud) => {
+            if (ui.eMail == email.value) {
+                let x = user[ud].contact.filter((ci, cd) => delIndex != cd);
+                user[ud].contact = x;
+                tbd1.innerHTML = "";
+                localStorage.userInfo = JSON.stringify(user)
+                saveContactBtn()
+            }
+        })
+
+    }
+
 }
 
 
 
 
 let contactBackBtn = () => {
+    conValidation.innerHTML = '';
+
     createNewContact.classList.add('createNewContactNone');
     saveNewContactBtn.classList.remove('saveContactBtnNone')
+    var contactInfo = {
+        contactFirstName: contactFirstName.value,
+        contactLastName: contactLastName.value,
+        contactPhoneNumber: contactPhone.value,
+        contactEmailAd: contactEmail.value,
+
+
+    }
+    let h = false;
+    if (contactFirstName.value == '' || contactPhone.value == '') {
+        console.log('new')
+    } else {
+        createNewContact.classList.add('createNewContactNone');
+
+        user.filter((ui, ud) => {
+            if (email.value == ui.eMail) {
+                ui.contact.push(contactInfo);
+                localStorage.userInfo = JSON.stringify(user)
+
+            }
+
+        })
+    }
+    tbd1.innerHTML += `<tr>`
+    user.filter((uii, udd) => {
+        if (email.value == uii.eMail) {
+            uii.contact.filter((ci, cd) => {
+                tbd1.innerHTML += `<td>${ci.contactFirstName}</td>
+                <td>${ci.contactLastName}</td>
+                 <td>${ci.contactPhoneNumber}</td>
+                 <td>${ci.contactEmailAd}</td>
+                 <td><button onclick="editContact1(${cd})"><span class="material-icons">edit_pen</span></button></td>
+                 <td><button onclick="delContact(${cd})"><span class="material-icons">delete_outline</span></button></td>`
+                tbd1.innerHTML += `</tr>`;
+            })
+        }
+
+    })
     contactFirstName.value = '';
     contactLastName.value = '';
     contactPhone.value = '';
@@ -467,7 +504,7 @@ let saveEvent = () => {
                 <button onclick="eventEditBtnn(${cd})" style="width: 30px;">
                <span class="material-icons ps-2">edit_pen</span>
                 </button>
-              <button onclick="eventDeleteBtn(${cd})">
+              <button onclick="eventDeleteBtnn(${cd})">
                <span class="material-icons">delete_outline</span>
                </button>
               </div>
@@ -483,6 +520,7 @@ let saveEvent = () => {
 
 //it edits the event made immediately on the page
 let eventEditBtnn = (eventEditBtnnIndex) => {
+    eventList.classList.remove('eventListNone');
     user.filter((ui, ud) => {
         if (ui.eMail == email.value) {
             for (let i = 0; i < user[ud].event.length; i++) {
@@ -490,26 +528,32 @@ let eventEditBtnn = (eventEditBtnnIndex) => {
                     eventTitleInput.value = user[ud].event[i].eventName;
                     eventDate.value = user[ud].event[i].eventDate;
                     eventTime.value = user[ud].event[i].eventTime;
+                    if (eventEditBtnnIndex == i) {
+                        user[ud].event.splice(i, 1);
+                        localStorage.userInfo = JSON.stringify(user)
+                    }
                 }
             }
         }
     })
+    loadEvent.innerHTML = "";
+
 }
 //It deletes the event made immediately on the page
-let eventDeleteBtn = (eventDeleteBtnIndex) => {
-    user.filter((ui, ud) => {
-        if (ui.eMail == email.value) {
-            let X = user[ud].event.filter((ci, cd) => eventDeleteBtnIndex != cd);
-            user[ud].event = X;
-            loadEvent.innerHTML = "";
-            saveEvent()
-            localStorage.userInfo = JSON.stringify(user);
-        }
-    })
+let eventDeleteBtnn = (eventDeleteBtnIndex) => {
+    if (confirm('Are you sure you want to delete')) {
+        user.filter((ui, ud) => {
+            if (ui.eMail == email.value) {
+                let X = user[ud].event.filter((ci, cd) => eventDeleteBtnIndex != cd);
+                user[ud].event = X;
+                loadEvent.innerHTML = "";
+                saveEvent()
+                localStorage.userInfo = JSON.stringify(user);
+            }
+        })
+    }
 
 }
-
-
 
 
 //it deletes the saved event made on the onload of the page
@@ -538,10 +582,6 @@ let eventDelete = (eventDeleteIndex) => {
 
 }
 
-
-
-
-
 //====================================================
 //NOTE
 let notesBtn = () => {
@@ -551,9 +591,11 @@ let notesBtn = () => {
 }
 
 
+
 const showNote = () => {
     noteTitle.classList.remove('noteTitleNone');
     note.classList.remove('noteNone');
+
 }
 
 const hideNote = () => {
@@ -561,9 +603,6 @@ const hideNote = () => {
     note.classList.add('noteNone');
 
 }
-
-
-
 
 
 let saveNoteBtn = () => {
@@ -575,16 +614,34 @@ let saveNoteBtn = () => {
     hideNote();
     user.map((uitems, uindex) => {
         if (uitems.eMail == email.value) {
-            let h = true;
-            if (h) {
-                user[uindex].note[0].noteInfo.push(noteDocument);
-                localStorage.userInfo = JSON.stringify(user);
+            let h = true
+            user[uindex].note.map((ui, ud) => {
+                if (h) {
+                    if (noteTitleName.value == "" || notePad.value == "") {
+                        console.log('undefined')
+                    } else {
+                        user[uindex].note[ud].noteInfo.push(noteDocument)
+                        localStorage.userInfo = JSON.stringify(user)
+                    }
+                    user[uindex].note[ud].noteInfo.map((uii, uid) => {
+                        notetext2.classList.remove('noteTexxtt2None');
+                        noteTexxtt2.innerHTML += `<h3>${uii.noteTitle}</h3> <p>${uii.noteContent}</p><div>
+                            <button class="notebtnn" onclick="editNoteBtnn(${uid})">
+                           <span class="material-icons">edit_pen</span>
+                            </button>
+                          <button class="notebtnn" onclick="noteDeleteBtnn (${uid})">
+                           <span class="material-icons">delete_outline</span>
+                           </button><hr>`
 
-                notetext2.classList.remove('noteTexxtt2None');
-                noteTexxtt2.innerHTML += `<h3>${note_TitleName}</h3> <p>${note_Pad}</p><hr>`
-            }
+                    })
+                }
+            })
         }
+
     })
+
+
+
     noteTitleName.value = ""
     notePad.value = ""
 
@@ -593,13 +650,93 @@ let saveNoteBtn = () => {
 let writenote = () => {
     noteTitleBoardHouse.classList.add('nottileboardhouseNon')
     notetext2.classList.add('noteTexxtt2None');
+    noteTexxtt2.innerHTML = ""
     showNote();
-    // noteTitle.classList.remove('noteTitleNone');
-    // note.classList.remove('noteNone');
 
 }
 
-//It loads up the note for you for editing
+let goback = () => {
+    hideNote()
+    let note_TitleName = noteTitleName.value;
+    let note_Pad = notePad.value;
+    let h = false
+    let noteDocument = { noteTitle: note_TitleName, noteContent: note_Pad }
+    user.map((uitems, uindex) => {
+        if (uitems.eMail == email.value) {
+            let h = true
+            user[uindex].note.map((ui, ud) => {
+                if (h) {
+                    if (noteTitleName.value == "" || notePad.value == "") {
+                        console.log('undefined')
+                    } else {
+                        user[uindex].note[ud].noteInfo.push(noteDocument)
+                        localStorage.userInfo = JSON.stringify(user)
+                    }
+                    user[uindex].note[ud].noteInfo.map((uii, uid) => {
+                        notetext2.classList.remove('noteTexxtt2None');
+                        noteTexxtt2.innerHTML += `<h3>${uii.noteTitle}</h3> <p>${uii.noteContent}</p><div>
+                            <button onclick="editNoteBtnn(${uid})">
+                           <span class="material-icons">edit_pen</span>
+                            </button>
+                          <button onclick="noteDeleteBtnn(${uid})">
+                           <span class="material-icons">delete_outline</span>
+                           </button><hr>`
+
+                    })
+                }
+            })
+        }
+
+    })
+
+
+
+}
+//it edits and deletes the note made immediately
+let editNoteBtnn = (editNoteBtnnIndex) => {
+    noteTexxtt2.innerHTML = ""
+    user.filter((ui, ud) => {
+        if (ui.eMail == email.value) {
+            user[ud].note.filter((ni, nd) => {
+                for (let i = 0; i < user[ud].note[nd].noteInfo.length; i++) {
+                    if (editNoteBtnnIndex == i) {
+                        noteTitleName.value = user[ud].note[nd].noteInfo[i].noteTitle;
+                        notePad.value = user[ud].note[nd].noteInfo[i].noteContent
+                        showNote();
+                        notetext2.classList.add('noteTexxtt2None');
+
+                        if (editNoteBtnnIndex == i) {
+                            user[ud].note[nd].noteInfo.splice(i, 1)
+                            localStorage.userInfo = JSON.stringify(user)
+                        }
+                    }
+                }
+            })
+        }
+    })
+
+
+
+}
+let noteDeleteBtnn = (delNoteBtnnIndex) => {
+    if (confirm('Are you sure you wnat to delete')) {
+        user.filter((ui, ud) => {
+            if (ui.eMail == email.value) {
+                user[ud].note.filter((ni, nd) => {
+                    let x = user[ud].note[nd].noteInfo.filter((nii, nid) => delNoteBtnnIndex != nid);
+                    user[ud].note[nd].noteInfo = x;
+                    noteTexxtt2.innerHTML = "";
+                    saveNoteBtn();
+                    localStorage.userInfo = JSON.stringify(user)
+
+
+                })
+            }
+        })
+    }
+}
+
+//It loads up the note for you for editing on the onload of the page
 const editNote = (editIndex) => {
     let note_TitleName = noteTitleName.value;
     let note_Pad = notePad.value;

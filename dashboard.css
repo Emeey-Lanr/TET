@@ -2,7 +2,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
+
+
 
 @font-face {
     font-family: tet;
@@ -28,13 +31,13 @@
 }
 
 .h1 {
-    padding-top: 40px;
+    padding-top: 80px;
     font-family: sans-serif;
     width: 300px;
     color: transparent;
     background-color: white;
     -webkit-background-clip: text;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 .h3 {
@@ -142,32 +145,102 @@ main {
 
 }
 
-.content {
+.contents {
     width: 100%;
     position: relative;
+    background-color: white;
+    top: -0px;
+    box-sizing: border-box;
+
+
 }
 
 .contentMainPage {
-    background-image: url(back.jpg);
+    /* background-image: url(back.jpg); */
     background-position: center;
     background-size: 80%;
     background-repeat: no-repeat;
+    background-color: white;
+
+}
+
+
+
+.m {
+    width: 100%;
+    height: 40vh;
+    background-image: url(tet.jpg);
+    background-position: center;
+    background-size: cover;
+    background-position-y: bottom;
+}
+
+.brand {
+    color: white;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.brand .ball {
+    width: 10px;
+    background-color: #cdd0d5;
+    display: block;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.brand .title {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: tet;
+    font-style: italic;
+    color: #cdd0d5;
+}
+
+.brand-info {
+    width: 100%;
+    color: white;
+    position: relative;
+}
+
+.brand-info p {
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 3rem;
+}
+
+.brand .title2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding-left: 20px;
+    font-style: italic;
 
 }
 
 section {
-    width: 80%;
+    width: 100%;
     display: grid;
     grid-template-columns: 2fr 10fr;
-    background-color: #f9f9fb;
-    border-radius: 50px;
+    background-color: #f2f2f2;
+    /* border-radius: 50px; */
     padding-bottom: 50px;
+    position: relative;
+    top: 90px;
+    grid-gap: 40px;
 }
 
 .userinfo {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -180px;
+    background-color: white;
+    padding-bottom: 130px;
+    border-radius: 0 5px 0 0;
+    text-align: center;
+    color: #050505cc;
+
 }
 
 .userinfo>div .username {
@@ -182,6 +255,30 @@ section {
     padding-right: 10px;
 }
 
+.indication {
+    background-color: #123a60;
+    color: white;
+    border-radius: 2px 2px 2px 2px;
+
+}
+
+.indication p {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.icon {
+    background-color: white;
+    position: relative;
+
+
+}
+
+.iconlogo {
+    position: relative;
+    top: -200px;
+}
+
 
 .iconlogo>div:hover {
     background-color: #e0e1e1;
@@ -189,10 +286,10 @@ section {
 }
 
 .iconm {
-
     padding: 10px 0;
     padding-left: 45px;
     line-height: 2;
+    background-color: white;
 }
 
 .iconm button {
@@ -206,15 +303,25 @@ section {
 }
 
 header {
-    background: linear-gradient(25deg, #23405a, #005cb2cc);
-    border-radius: 10px 0 0 10px;
+    /* background: linear-gradient(25deg, #23405a, #005cb2cc);
+    border-radius: 10px 0 0 10px; */
+
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    margin: 0 0 0 auto;
+    position: relative;
+    top: -70px;
 }
 
 h1 {
     text-align: center;
-    font-family: tet;
-    color: #f9f9fb;
-    padding-top: 20px;
+    /* font-family: tet; */
+    color: black;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-style: italic;
+    padding: 40px 0;
 }
 
 .inputSearch {
@@ -268,12 +375,16 @@ h1 {
 
 
 
+
 /* CONTACTS */
 .contact {
     text-align: center;
     font-family: tet;
-    background-color: #cdd0d5;
+    background-color: white;
     padding: 10px 0;
+    position: relative;
+    text-decoration: underline;
+    top: -90px;
     border-radius: 10px 0 0 10px;
 
 }
@@ -281,7 +392,7 @@ h1 {
 .add {
 
     position: absolute;
-    bottom: 5%;
+    bottom: 0%;
     right: 17%;
 }
 
@@ -301,6 +412,7 @@ h1 {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.703);
     padding: 150px 0;
+    height: 130vh;
     position: absolute;
     top: 0%;
 }
@@ -313,14 +425,9 @@ h1 {
     display: none;
 }
 
-.jj {
-    position: absolute;
-    bottom: -20%;
-    left: 50%;
 
 
-}
-.h> .tbtable{
+.h>.tbtable {
     display: flex;
     justify-content: space-between;
 }
@@ -384,7 +491,7 @@ h1 {
 /*EVENT*/
 .eventList {
     width: 100%;
-    height: 100vh;
+    height: 130vh;
     background-color: rgba(0, 0, 0, 0.768);
     display: flex;
     justify-content: center;
@@ -459,6 +566,7 @@ h1 {
     right: 17%;
     width: 80px;
 
+
 }
 
 .addEvent button {
@@ -476,7 +584,7 @@ h1 {
 /*====NOTE===*/
 .note {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
 }
 
 .notetitle input {
@@ -540,7 +648,7 @@ h1 {
 
 .noteTexxtt2 button {
     border: none;
-    border: 1px solid #23405a;
+    /* border: 1px solid #23405a; */
     background: none;
     border-radius: 5px;
     color: black;
@@ -597,6 +705,8 @@ h1 {
 
 .editingprofile>div:hover {
     background-color: #cdd0d5;
+
+
 }
 
 .editingprofile button {
@@ -785,11 +895,11 @@ h5 {
 
 @media screen and (max-width:1000px) {
     section {
-        grid-template-columns: 1fr 11fr;
+        grid-template-columns: 2fr 10fr;
     }
 
     .userinfo {
-        display: unset;
+        /* display: unset; */
         margin: o auto;
         text-align: center;
     }
@@ -845,12 +955,8 @@ h5 {
         width: 80%;
     }
 
-    .icon {
-        padding-left: 30px;
-    }
-
-    .iconm {
-        padding-left: 20px;
+    .dashboard p {
+        font-size: 1rem;
     }
 }
 
@@ -859,12 +965,10 @@ h5 {
         width: 80%;
     }
 
-    .icon {
-        padding-left: 20px;
-    }
 
-    .iconm {
-        padding-left: 10px;
+
+    .dashboard p {
+        display: none;
     }
 
 }
