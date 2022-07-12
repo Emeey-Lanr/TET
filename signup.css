@@ -1,15 +1,22 @@
-body{
+body {
   background: url(back.jpg);
   /* background-color: rgba(0, 0, 0, 0.768); */
 }
-#backgroudc{
+
+@font-face {
+  font-family: tet;
+  src: url(amz.ttf);
+}
+
+#backgroudc {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.712);
   height: 100vh;
 }
+
 .secOne {
   padding: 20px;
-  border-radius: 30px;
+  border-radius: 6px;
   background-color: #fbfbf9;
   box-shadow: 2px 2px 5px;
   width: 30%;
@@ -36,14 +43,27 @@ body{
 .but {
   height: 3em;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
-  background: linear-gradient(25deg, #23405a, #005cb2cc);
+  background: #23405a;
+}
+
+.but:hover {
+  background: #23405a;
+  color: white;
+
 }
 
 .lab {
   font-size: 1.3em;
 }
+
+.icon {
+  font-family: tet;
+  font-size: 2rem;
+}
+
+
 
 @media only screen and (max-width: 760px) {
   .secOne {

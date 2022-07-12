@@ -26,18 +26,18 @@ let register = () => {
   let pWord = password.value;
   // preventing user from inputing nothing  
   if (ftName != '' && ltName != '' && eMl != '' && pWord != '') {
-    for (let i = 0 ; i < user.length ; i++){
-      if (eMl == user[i].eMail){
+    for (let i = 0; i < user.length; i++) {
+      if (eMl == user[i].eMail) {
         check = true
       }
     }
-    if (check == true){
+    if (check == true) {
       alert('Email already exist')
     }
-    else if(check == false) {
+    else if (check == false) {
       let newUser = {
         firstName: ftName,
-        lastName:   ltName,
+        lastName: ltName,
         eMail: eMl,
         passWord: pWord,
         contact: [],
@@ -57,4 +57,8 @@ let register = () => {
   else {
     alert(`Complete the information above`)
   }
+}
+
+let dashh = () => {
+  window.location.href = 'dashboard.html'
 }

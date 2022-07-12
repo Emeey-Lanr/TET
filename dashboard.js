@@ -125,13 +125,15 @@ let signin = () => {
     let check = false;
     if (eMl != '' && pWord != '') {
         for (let i = 0; i < user.length; i++) {
-            if (/*eMl*/email.value == user[i].eMail && /*pWord*/ password.value == user[i].passWord) {
+            if (email.value == user[i].eMail && password.value == user[i].passWord) {
                 check = true;
                 nameUser.innerHTML = user[i].firstName
                 First_Name(user[i].firstName);
                 Last_Name(`@${user[i].lastName}`);
                 break
+
             }
+
         }
 
         if (check == true) {
@@ -225,6 +227,14 @@ let contactBtn = () => {
     user.map((ui, ud) => {
         if (ui.eMail == email.value) {
             nameUserCon.innerHTML = `${ui.firstName}!`;
+            console.log(ui.contact == "")
+
+            if (ui.contact == "") {
+                pPreviewContact.innerHTML = `NO CONTACT AVAILLABLE,<br>CREATE NEW CONTACT.`
+            } else {
+                pPreviewContact.innerHTML = '';
+            }
+
 
         }
     })
@@ -273,7 +283,6 @@ let deleteContactBtn = (delindexbtn) => {
     user.filter((ui, ud) => {
         if (ui.eMail == email.value) {
             let del = user[ud].contact.filter((ci, cd) => delindexbtn != cd);
-
             user[ud].contact = del
             tbd.innerHTML = "";
             saveContact();
@@ -281,6 +290,7 @@ let deleteContactBtn = (delindexbtn) => {
         }
     })
 }
+
 
 let addContactBtn = () => {
     createNewContact.classList.remove('createNewContactNone');
@@ -292,7 +302,6 @@ let addContactBtn = () => {
     contactLastName.value = '';
     contactPhone.value = '';
     contactEmail.value = ''
-
 }
 
 
@@ -313,9 +322,9 @@ let saveContactBtn = () => {
     } else {
         conValidation.innerHTML = '';
         createNewContact.classList.add('createNewContactNone');
-        previewCon.innerHTML = "";
         user.filter((ui, ud) => {
             if (email.value == ui.eMail) {
+                pPreviewContact.innerHTML = '';
                 ui.contact.push(contactInfo);
                 localStorage.userInfo = JSON.stringify(user)
 
@@ -381,6 +390,11 @@ let delContact = (delIndex) => {
                 tbd1.innerHTML = "";
                 localStorage.userInfo = JSON.stringify(user)
                 saveContactBtn()
+                if (ui.contact == '') {
+                    pPreviewContact.innerHTML = `NO CONTACT AVAILLABLE,<br>CREATE NEW CONTACT.`;
+                } else {
+                    pPreviewContact.innerHTML = ``
+                }
             }
         })
 
@@ -443,6 +457,9 @@ let eventBtn = () => {
     user.map((ui, ud) => {
         if (ui.eMail == email.value) {
             nameUserEvent.innerHTML = `${ui.firstName}!`
+            if (ui.event == "") {
+                pPreviewE.innerHTML = `NO EVENT AVAILABLE,<br>CREATE NEW EVENT.`
+            }
         }
     })
 
@@ -467,9 +484,9 @@ let saveEvent = () => {
     user.map((i, id) => {
         if (i.eMail == email.value) {
             if (eventTitleInput.value == "") {
-                alert('looks that you forgot something');
+                console.log('looks that you forgot something');
             } else {
-                previewEvent.innerHTML = "";
+                pPreviewE.innerHTML = "";
                 i.event.push(storeEvent)
                 localStorage.userInfo = JSON.stringify(user)
 
@@ -542,6 +559,11 @@ let eventDeleteBtnn = (eventDeleteBtnIndex) => {
                 loadEvent.innerHTML = "";
                 saveEvent()
                 localStorage.userInfo = JSON.stringify(user);
+                if (ui.event == '') {
+                    pPreviewE.innerHTML = `NO EVENT AVAILABLE,<br>CREATE NEW EVENT.`;
+                } else {
+                    pPreviewE.innerHTML = ``
+                }
             }
         })
     }
@@ -580,6 +602,20 @@ let notesBtn = () => {
 
     showNotePage()
     notetext2.classList.remove('noteTexxtt2None');
+    user.map((ui, ud) => {
+        if (ui.eMail == email.value) {
+            nameUserEvent.innerHTML = `${ui.firstName}!`
+            ui.note.map((ni, nd) => {
+                if (ni.noteInfo == "") {
+                    pPreviewNote.innerHTML = `NO NOTE AVAILABLE,<br>CREATE NEW NOTE.`
+                } else {
+                    pPreviewNote.innerHTML = "";
+                }
+            })
+        }
+    })
+
+
 
 }
 
@@ -598,12 +634,14 @@ const hideNote = () => {
 
 }
 
-
+let pNote = document.querySelector('#pPreviewNote');
 let saveNoteBtn = () => {
 
     let note_TitleName = noteTitleName.value;
     let note_Pad = notePad.value;
     let h = false
+    // let pPreviewNotte = document.querySelector('#pPreviewNote');
+    // let pPost = pPreviewNote.innerHTML
     let noteDocument = { noteTitle: note_TitleName, noteContent: note_Pad }
     hideNote();
     user.map((uitems, uindex) => {
@@ -614,9 +652,10 @@ let saveNoteBtn = () => {
                     if (noteTitleName.value == "" || notePad.value == "") {
                         console.log('undefined')
                     } else {
-                        previewNote.innerHTML = "";
+                        // pPreviewNotte.textContent = "";
                         user[uindex].note[ud].noteInfo.push(noteDocument)
                         localStorage.userInfo = JSON.stringify(user)
+                        pNote.textContent = ""
                     }
                     user[uindex].note[ud].noteInfo.map((uii, uid) => {
                         notetext2.classList.remove('noteTexxtt2None');
@@ -648,6 +687,7 @@ let writenote = () => {
     notetext2.classList.add('noteTexxtt2None');
     noteTexxtt2.innerHTML = ""
     showNote();
+
 }
 
 let goback = () => {
@@ -709,11 +749,11 @@ let editNoteBtnn = (editNoteBtnnIndex) => {
             })
         }
     })
-
-
-
 }
+
+let ppNote = document.getElementById('yyy');
 let noteDeleteBtnn = (delNoteBtnnIndex) => {
+    const previewNotte = document.querySelector('.pPreviewNote');
     if (confirm('Are you sure you wnat to delete')) {
         user.filter((ui, ud) => {
             if (ui.eMail == email.value) {
@@ -723,6 +763,9 @@ let noteDeleteBtnn = (delNoteBtnnIndex) => {
                     noteTexxtt2.innerHTML = "";
                     saveNoteBtn();
                     localStorage.userInfo = JSON.stringify(user)
+                    if (user[ud].note[nd].noteInfo == "") {
+                        ppNote.innerHTML = `NO NOTE AVAILABLE, <br>CREATE NEW NOTE.`
+                    }
 
 
                 })

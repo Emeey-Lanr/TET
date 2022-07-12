@@ -4,10 +4,89 @@
     box-sizing: border-box;
 }
 
-.background {
-    width: 100%;
-    height: 100vh;
-    background-image: url(abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background);
-    background-size: cover;
-    background-position: center;
+@font-face {
+    font-family: tet;
+    src: url(amz.ttf);
+}
+
+body {
+
+    background-color: #123a60;
+}
+
+.content {
+    text-align: center;
+}
+
+span {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    /* text-align: center; */
+}
+
+.ani {
+    animation: spa infinite 6s running normal;
+}
+
+@keyframes spa {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(30px);
+    }
+
+    100% {
+        transform: translateX(-30px);
+    }
+}
+
+h1 {
+    color: white;
+    font-family: tet;
+    font-size: 6rem;
+}
+
+.textContent {
+    padding-top: 40px;
+
+}
+
+.textContentNone {
+    display: none;
+
+
+    transition: 2s all ease-out;
+}
+
+
+
+p {
+    color: white;
+    animation: tet 1 7s running normal;
+}
+
+@keyframes tet {
+    0% {
+        font-size: 0.5rem;
+    }
+
+    50% {
+        font-size: 0.8rem;
+    }
+
+    100% {
+        font-size: 1rem;
+    }
+
+
+}
+
+.p2 {
+    font-style: italic;
 }

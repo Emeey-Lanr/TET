@@ -1,9 +1,9 @@
-let m = [6, 8, 9, 10, { name: [89, 980, 393] }];
-m[4].name.forEach((number) => {
-    console.log(`emeey${number}`)
-})
+'use strict'
+let message = document.querySelector('.textContent');
+setTimeout(() => {
+    message.classList.remove('textContentNone');
+}, 5000)
 
-NodeList = ['i4ii', 50];
-if (NodeList.indexOf(50) == 1) {
-    alert('kjhgfdsdfghjklkjhgfd')
-}
+setTimeout(() => {
+    window.location.href = 'signup.html'
+}, 8000)
