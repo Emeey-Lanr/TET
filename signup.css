@@ -11,13 +11,15 @@ body {
 #backgroudc {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.712);
-  height: 100vh;
+  padding: 50px 0;
+  padding-top: 30px;
+
 }
 
 .secOne {
   padding: 20px;
   border-radius: 6px;
-  background-color: #fbfbf9;
+  background: linear-gradient(to top, #23405a82, #51708b82);
   box-shadow: 2px 2px 5px;
   width: 30%;
   align-items: center;
@@ -26,18 +28,27 @@ body {
   flex-wrap: wrap;
 }
 
-.img {
-  width: 350px;
-  height: 150px;
-  margin-top: -45px;
-  margin-bottom: -45px;
+label {
+  color: white;
 }
 
 .inp {
-  border-radius: 10px;
+  /* border-radius: 10px;
   border-width: 1px;
   padding: 10px;
-  font-size: 0.9em;
+  font-size: 0.9em; */
+  width: 100%;
+  border: none;
+  padding: 10px 0;
+  border-radius: 3px;
+  padding-left: 6px;
+  background: #ffffff;
+  margin-bottom: 20px;
+
+}
+
+.inp:focus {
+  outline: 1px solid #23405a82;
 }
 
 .but {
@@ -61,12 +72,54 @@ body {
 .icon {
   font-family: tet;
   font-size: 2rem;
+  color: #ffffff;
 }
 
+span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  background-color: white;
+  border-radius: 20px;
+}
 
+.acc {
+  color: white;
+  font-style: italic;
+}
+
+.but {
+  /* font-weight: bold; */
+}
+
+.but:hover {
+  transition: 1s all ease-in-out;
+  transform: translateY(10px);
+  font-weight: bold;
+}
+
+.signin {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 @media only screen and (max-width: 760px) {
   .secOne {
     width: 70%;
   }
+}
+
+@media screen and (max-width:500px) {
+  .secOne {
+    width: 90%;
+  }
+
+  .signin {
+    display: block;
+  }
+
+  .signin p {
+    text-align: center;
+  }
+
 }
