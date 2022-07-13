@@ -6,4 +6,4 @@ setTimeout(() => {
 
 setTimeout(() => {
     window.location.href = 'signup.html'
-}, 8000)
+}, 9000)

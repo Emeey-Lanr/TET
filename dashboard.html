@@ -102,12 +102,6 @@
                             </button>
                             <p class="iconMessage hideIconMessage">Notes</p>
                         </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="documentBtn()" style="width: 28px;">
-                                <span class="material-icons">descriptions</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">Document</p>
-                        </div>
                         <div class=" d-flex iconm  align-items-center mt-5">
                             <button onclick="settingsBtn()" style="width: 28px;">
                                 <span class="material-icons">settings</span>
@@ -185,12 +179,6 @@
                             </button>
                             <p class="iconMessage hideIconMessage">Notes</p>
                         </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="documentBtn()" style="width: 28px;">
-                                <span class="material-icons">descriptions</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">Document</p>
-                        </div>
                         <div class=" d-flex iconm  align-items-center mt-5">
                             <button onclick="settingsBtn()" style="width: 28px;">
                                 <span class="material-icons">settings</span>
@@ -214,7 +202,7 @@
 
                     <table class="table" id="table" style="position: absolute; top: 60px;">
 
-                        <tr>
+                        <tr class="trow">
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Phone Number</th>
@@ -224,6 +212,7 @@
                         </tr>
                         <tbody id="tbd">
 
+
                         </tbody>
                         <tbody id="tbd1">
 
@@ -231,7 +220,7 @@
 
                     </table>
                     <div id="previewCon" class="d-flex justify-content-center align-items-center">
-                        <p class="text-center" style="font-weight: bold; font-size: 4rem; opacity: 10%;"
+                        <p class="text-center" style="font-weight: bold;  opacity: 10%;"
                             id="pPreviewContact">
 
                         </p>
@@ -353,12 +342,6 @@
                             </button>
                             <p class="iconMessage hideIconMessage">Notes</p>
                         </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="documentBtn()" style="width: 28px;">
-                                <span class="material-icons">descriptions</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">Document</p>
-                        </div>
                         <div class=" d-flex iconm  align-items-center mt-5">
                             <button onclick="settingsBtn()" style="width: 28px;">
                                 <span class="material-icons">settings</span>
@@ -391,7 +374,7 @@
 
                     </div>
                     <div id="previewEvent" class="d-flex justify-content-center align-items-center">
-                        <p class="text-center" style="font-weight: bold; font-size: 4rem; opacity: 10%;" id="pPreviewE">
+                        <p class="text-center" style="font-weight: bold;  opacity: 10%;" id="pPreviewE">
 
                         </p>
                     </div>
@@ -496,12 +479,6 @@
                             </button>
                             <p class="iconMessage hideIconMessage">Notes</p>
                         </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="documentBtn()" style="width: 28px;">
-                                <span class="material-icons">descriptions</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">Document</p>
-                        </div>
                         <div class=" d-flex iconm  align-items-center mt-5">
                             <button onclick="settingsBtn()" style="width: 28px;">
                                 <span class="material-icons">settings</span>
@@ -536,8 +513,7 @@
                     </div>
                     <div id="tt" class="tt ttnone"> </div>
                     <div id="previewNote">
-                        <p class="text-center pPreviewNote" style="font-weight: bold; font-size: 4rem; opacity: 10%;"
-                            id="pPreviewNote">
+                        <p class="text-center pPreviewNote" style="font-weight: bold;  opacity: 10%;" id="pPreviewNote">
 
                         </p>
 
@@ -593,8 +569,8 @@
                             <img src="avatar.jpg" alt="">
                         </div>
                         <div>
-                            <span id="firName5" class="name">Oyelowo</span><br>
-                            <span id="lstName5" class="username">@EmeeyLanr</span>
+                            <span id="firName5" class="name"></span><br>
+                            <span id="lstName5" class="username"></span>
                         </div>
                         <div class="py-3 indication  w-100">
                             <p>Dashboard</p>
@@ -608,12 +584,6 @@
                             <p class="iconMessage hideIconMessage">Contact</p>
                         </div>
                         <div class="d-flex iconm  align-items-center">
-                            <button onclick="toDoListBtn()">
-                                <span class="material-icons">assignment</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">To do list</p>
-                        </div>
-                        <div class="d-flex iconm  align-items-center">
                             <button onclick="eventBtn()">
                                 <span class="material-icons">star</span>
                             </button>
@@ -624,12 +594,6 @@
                                 <span class="material-icons">edit_note</span>
                             </button>
                             <p class="iconMessage hideIconMessage">Notes</p>
-                        </div>
-                        <div class="d-flex iconm  align-items-center">
-                            <button onclick="documentBtn()" style="width: 28px;">
-                                <span class="material-icons">descriptions</span>
-                            </button>
-                            <p class="iconMessage hideIconMessage">Document</p>
                         </div>
                         <div class=" d-flex iconm  align-items-center mt-5">
                             <button onclick="settingsBtn()" style="width: 28px;">
@@ -678,14 +642,18 @@
                 <p>Edit Your Profile</p>
                 <div class="d-flex justify-content-center w-100">
                     <div class="w-75">
+                        <div class="d-flex justify-content-center">
+                            <button onclick="backSaveProfile()" style="border: none; background: none;"><span
+                                    style="font-weight: bold; font-size: 2rem; color: black;">&leftarrow;</span></button>
+                        </div>
                         <label for="" class="form-label">First Name</label>
-                        <input id="ftName" type="text">
+                        <input id="ftNamep" type="text">
                         <label for="" class="form-label">Last Name</label>
-                        <input id="ltName" type="text">
+                        <input id="ltNamep" type="text">
                         <label for="" class="form-label">Email</label>
-                        <input id="eMl" type="email">
+                        <input id="eMlp" type="email">
                         <label for="" class="form-label">Password</label>
-                        <input id="pWord" type="text">
+                        <input id="pWordp" type="text">
                         <div class="d-flex justify-content-center">
                             <button onclick="saveEditProfileBtn()">Save</button>
                         </div>
@@ -703,7 +671,10 @@
         <div class="delprofilee d-flex justify-content-center align-items-center">
 
             <div class="delprofileContent">
-
+                <div>
+                    <button onclick="backDelProfile()" style="border: none; background: none;"><span
+                            style="font-weight: bold; font-size: 2rem; color: black;">&leftarrow;</span></button>
+                </div>
                 <h5>TET</h5>
                 <p>Enter your Email & Password to get your account deactivated and to verify the process</p>
                 <div class="d-flex justify-content-center w-100">
@@ -712,7 +683,7 @@
                         <input id="emAil" type="email">
                         <label for="" class="form-label">Password</label>
                         <input id="pword" type="password">
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex bb justify-content-center">
                             <button onclick="saveDelProfileBtn()">Deactivate</button>
                         </div>
                     </div>
@@ -729,8 +700,6 @@
         </div>
     </div>
     <script src="dashboard.js"></script>
-    <script src="edit.js"></script>
-    <script src="delete.js"></script>
 
 </body>
 

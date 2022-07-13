@@ -26,12 +26,12 @@ let saveContact = () => {
         if (email.value == user[ct].eMail && password.value == user[ct].passWord) {
             user[ct].contact.map((ci, cd) => {
 
-                tbd.innerHTML += `<td>${user[ct].contact[cd].contactFirstName}</td>
-                    <td>${user[ct].contact[cd].contactLastName}</td>
-                   <td>${user[ct].contact[cd].contactPhoneNumber}</td>
-                      <td>${user[ct].contact[cd].contactEmailAd}</td>
-                       <td><button class= "editbtn" onclick="editContact(${cd})"> <span class="material-icons">edit_pen</span></button></td>
-                       <td><button onclick="deleteContactBtn(${cd})"><span class="material-icons">delete_outline</span></button>`
+                tbd.innerHTML += `<td><span class="onsaveConNone">First Name -</span> ${user[ct].contact[cd].contactFirstName}</td>
+                    <td><span class="onsaveConNone">Last Name -</span> ${user[ct].contact[cd].contactLastName}</td>
+                   <td><span class="onsaveConNone">Phone Number -</span> ${user[ct].contact[cd].contactPhoneNumber}</td>
+                      <td><span class="onsaveConNone">Email -</span> ${user[ct].contact[cd].contactEmailAd}</td>
+                       <td><span class="onsaveConNone">Edit -</span> <button class= "editbtn" onclick="editContact(${cd})"> <span class="material-icons">edit_pen</span></button></td>
+                       <td><span class="onsaveConNone">Delete -</span> <button onclick="deleteContactBtn(${cd})"><span class="material-icons">delete_outline</span></button>`
 
             })
 
@@ -87,8 +87,8 @@ let loadNoteTitle = () => {
                         console.log(c.noteTitle)
                         noteTexxtt2.innerHTML += `<h4>${c.noteTitle}</h4>
                                                    <p>${c.noteContent}</p>
-                                                   <button onclick="editNote(${n})">Edit Note</button>
-                                                   <button onclick="editDelete(${n})">Delete Note</button> <hr>`
+                                                   <button onclick="editNote(${n})"> <span class="material-icons">edit_pen</span></button>
+                                                   <button onclick="editDelete(${n})"><span class="material-icons">delete_outline</span></button> <hr>`
                         tt.innerHTML = `<button onclick="saveEdit(${n})">Save Edit</button>`
                     })
                 }
@@ -230,7 +230,7 @@ let contactBtn = () => {
             console.log(ui.contact == "")
 
             if (ui.contact == "") {
-                pPreviewContact.innerHTML = `NO CONTACT AVAILLABLE,<br>CREATE NEW CONTACT.`
+                pPreviewContact.innerHTML = `NO CONTACT AVAILABLE,<br>CREATE NEW CONTACT.`
             } else {
                 pPreviewContact.innerHTML = '';
             }
@@ -337,12 +337,12 @@ let saveContactBtn = () => {
     user.filter((uii, udd) => {
         if (email.value == uii.eMail) {
             uii.contact.filter((ci, cd) => {
-                tbd1.innerHTML += `<td>${ci.contactFirstName}</td>
-                <td>${ci.contactLastName}</td>
-                 <td>${ci.contactPhoneNumber}</td>
-                 <td>${ci.contactEmailAd}</td>
-                 <td><button onclick="editContact1(${cd})"><span class="material-icons">edit_pen</span></button></td>
-                 <td><button onclick="delContact(${cd})"><span class="material-icons">delete_outline</span></button></td>`
+                tbd1.innerHTML += `<td><p class="pcontNone">First Name -</p>${ci.contactFirstName}</td>
+                <td><p class="pcontNone">Last Name -</p>${ci.contactLastName}</td>
+                 <td><p class="pcontNone">Phone-Number -</p>${ci.contactPhoneNumber}</td>
+                 <td><p class="pcontNone">Email -</p>${ci.contactEmailAd}</td>
+                 <td><p class="pcontNone">Edit -</p><button onclick="editContact1(${cd})"><span class="material-icons">edit_pen</span></button></td>
+                 <td><p class="pcontNone">Delete -</p><button onclick="delContact(${cd})"><span class="material-icons">delete_outline</span></button></td>`
                 tbd1.innerHTML += `</tr>`;
             })
         }
@@ -434,12 +434,12 @@ let contactBackBtn = () => {
     user.filter((uii, udd) => {
         if (email.value == uii.eMail) {
             uii.contact.filter((ci, cd) => {
-                tbd1.innerHTML += `<td>${ci.contactFirstName}</td>
-                <td>${ci.contactLastName}</td>
-                 <td>${ci.contactPhoneNumber}</td>
-                 <td>${ci.contactEmailAd}</td>
-                 <td><button onclick="editContact1(${cd})"><span class="material-icons">edit_pen</span></button></td>
-                 <td><button onclick="delContact(${cd})"><span class="material-icons">delete_outline</span></button></td>`
+                tbd1.innerHTML += `<td><p class="pcontNone">First Name -</p>${ci.contactFirstName}</td>
+                <td><p class="pcontNone">Last Name -</p>${ci.contactLastName}</td>
+                 <td><p class="pcontNone">Phone-Number -</p>${ci.contactPhoneNumber}</td>
+                 <td><p class="pcontNone">Email -</p>${ci.contactEmailAd}</td>
+                 <td><p class="pcontNone">Edit -</p><button onclick="editContact1(${cd})"><span class="material-icons">edit_pen</span></button></td>
+                 <td><p class="pcontNone">Delete -</p><button onclick="delContact(${cd})"><span class="material-icons">delete_outline</span></button></td>`
                 tbd1.innerHTML += `</tr>`;
             })
         }
@@ -633,15 +633,13 @@ const hideNote = () => {
     note.classList.add('noteNone');
 
 }
-
+let ppNote = document.getElementById('yyy');
 let pNote = document.querySelector('#pPreviewNote');
 let saveNoteBtn = () => {
 
     let note_TitleName = noteTitleName.value;
     let note_Pad = notePad.value;
     let h = false
-    // let pPreviewNotte = document.querySelector('#pPreviewNote');
-    // let pPost = pPreviewNote.innerHTML
     let noteDocument = { noteTitle: note_TitleName, noteContent: note_Pad }
     hideNote();
     user.map((uitems, uindex) => {
@@ -652,7 +650,7 @@ let saveNoteBtn = () => {
                     if (noteTitleName.value == "" || notePad.value == "") {
                         console.log('undefined')
                     } else {
-                        // pPreviewNotte.textContent = "";
+                        ppNote.innerHTML = "";
                         user[uindex].note[ud].noteInfo.push(noteDocument)
                         localStorage.userInfo = JSON.stringify(user)
                         pNote.textContent = ""
@@ -751,7 +749,7 @@ let editNoteBtnn = (editNoteBtnnIndex) => {
     })
 }
 
-let ppNote = document.getElementById('yyy');
+
 let noteDeleteBtnn = (delNoteBtnnIndex) => {
     const previewNotte = document.querySelector('.pPreviewNote');
     if (confirm('Are you sure you wnat to delete')) {
@@ -882,22 +880,111 @@ const settingsBtn = () => {
     mainPage.classList.add('mainPageNone');
     contactPage.classList.add('contactPageNone');
     eventPage.classList.add('eventPageNone');
+    for (let i = 0; i < user.length; i++) {
+        if (user[i].eMail == email.value) {
+            firName5.innerHTML = user[i].firstName;
+            lstName5.innerHTML = user[i].lastName;
+        }
+    }
+
 }
 
+//EDITING PROFILE
+let editProfileBtn = () => {
+    editProfile.classList.remove('editprofileNone')
+    user.filter((ui, ud) => {
+        if (ui.eMail == email.value) {
+            ftNamep.value = ui.firstName;
+            ltNamep.value = ui.lastName;
+            eMlp.value = ui.eMail;
+            pWordp.value = ui.passWord;
+        }
+    })
+}
+//User's names displayed
+let userNameIcon = function () {
+    firName1.innerHTML = ftNamep.value;
+    firName2.innerHTML = ftNamep.value;
+    firName3.innerHTML = ftNamep.value;
+    firName4.innerHTML = ftNamep.value;
+    firName5.innerHTML = ftNamep.value
+    lstName1.innerHTML = ltNamep.value;
+    lstName2.innerHTML = ltNamep.value;
+    lstName3.innerHTML = ltNamep.value;
+    lstName4.innerHTML = ltNamep.value;
+    lstName5.innerHTML = ltNamep.value;
+}
+let userNameDashBoard = function () {
+    nameUser.innerHTML = ftNamep.value;
+    nameUserCon.innerHTML = ftNamep.value;
+    nameUserEvent.innerHTML = ftNamep.value;
+    nameUserNote.innerHTML = ftNamep.value;
 
-// let editProfileBtn = () => {
-//     editProfile.classList.remove('editprofileNone')
-// }
 
-// let delProfileBtn = () => {
-//     delProfile.classList.remove('delprofileNone')
-// }
-// let saveEditProfileBtn = () => {
-//     editProfile.classList.add('editprofileNone')
-// }
-// let saveDelProfileBtn = () => {
-//     window.location.href = 'signup.html';
-// }
+}
+let saveEditProfileBtn = () => {
+    editProfile.classList.add('editprofileNone');
+    user.map((ui, ud) => {
+        if (ui.eMail == email.value) {
+
+            let contactP = ui.contact;
+            let eventP = ui.event;
+            let noteP = ui.note[0].noteInfo;
+            console.log(contactP, eventP, noteP)
+
+
+            user[ud] = {
+                firstName: ftNamep.value,
+                lastName: ltNamep.value,
+                eMail: eMlp.value,
+                passWord: pWordp.value,
+                contact: contactP,
+                event: eventP,
+                note: [{ noteInfo: noteP }],
+            }
+
+            userNameDashBoard();
+            userNameIcon();
+            localStorage.userInfo = JSON.stringify(user);
+
+
+
+        }
+    })
+
+}
+
+//DELETING PROFILE 
+let delProfileBtn = () => {
+    delProfile.classList.remove('delprofileNone')
+
+}
+
+let backSaveProfile = () => {
+    editProfile.classList.add('editprofileNone');
+}
+let backDelProfile = () => {
+    delProfile.classList.add('delprofileNone')
+}
+let saveDelProfileBtn = () => {
+    let h = false;
+    user.map((ui, ul) => {
+        if (ui.eMail == email.value) {
+            console.log(ui.eMail)
+            h = true;
+
+        }
+        if (h) {
+            if (confirm('Are you sure you want to delete')) {
+                if (ui.eMail == emAil.value && ui.passWord == pword.value) {
+                    user.splice(ul, 1);
+                    localStorage.userInfo = JSON.stringify(user);
+                    window.location.href = 'signup.html';
+                }
+            }
+        }
+    })
+}
 
 
 
